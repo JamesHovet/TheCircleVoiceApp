@@ -14,6 +14,8 @@
 		591118B41CA0B67500F91103 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 591118B21CA0B67500F91103 /* LaunchScreen.storyboard */; };
 		591118BF1CA0B67500F91103 /* TheCircleVoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118BE1CA0B67500F91103 /* TheCircleVoiceTests.swift */; };
 		591118CA1CA0B67500F91103 /* TheCircleVoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118C91CA0B67500F91103 /* TheCircleVoiceUITests.swift */; };
+		591118DA1CA0B7EC00F91103 /* FontAssets in Resources */ = {isa = PBXBuildFile; fileRef = 591118D91CA0B7EC00F91103 /* FontAssets */; };
+		591118DC1CA0B81900F91103 /* RssFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118DB1CA0B81900F91103 /* RssFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		591118C51CA0B67500F91103 /* TheCircleVoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheCircleVoiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		591118C91CA0B67500F91103 /* TheCircleVoiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCircleVoiceUITests.swift; sourceTree = "<group>"; };
 		591118CB1CA0B67500F91103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		591118D91CA0B7EC00F91103 /* FontAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FontAssets; sourceTree = "<group>"; };
+		591118DB1CA0B81900F91103 /* RssFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		5911189D1CA0B67500F91103 = {
 			isa = PBXGroup;
 			children = (
+				591118D91CA0B7EC00F91103 /* FontAssets */,
 				591118A81CA0B67500F91103 /* TheCircleVoice */,
 				591118BD1CA0B67500F91103 /* TheCircleVoiceTests */,
 				591118C81CA0B67500F91103 /* TheCircleVoiceUITests */,
@@ -100,6 +105,7 @@
 				591118A91CA0B67500F91103 /* AppDelegate.swift */,
 				591118AB1CA0B67500F91103 /* ViewController.swift */,
 				591118AD1CA0B67500F91103 /* Main.storyboard */,
+				591118DB1CA0B81900F91103 /* RssFetcher.swift */,
 				591118B01CA0B67500F91103 /* Assets.xcassets */,
 				591118B21CA0B67500F91103 /* LaunchScreen.storyboard */,
 				591118B51CA0B67500F91103 /* Info.plist */,
@@ -232,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591118DA1CA0B7EC00F91103 /* FontAssets in Resources */,
 				591118B41CA0B67500F91103 /* LaunchScreen.storyboard in Resources */,
 				591118B11CA0B67500F91103 /* Assets.xcassets in Resources */,
 				591118AF1CA0B67500F91103 /* Main.storyboard in Resources */,
@@ -260,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				591118AC1CA0B67500F91103 /* ViewController.swift in Sources */,
+				591118DC1CA0B81900F91103 /* RssFetcher.swift in Sources */,
 				591118AA1CA0B67500F91103 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
