@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		591118AA1CA0B67500F91103 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118A91CA0B67500F91103 /* AppDelegate.swift */; };
 		591118AC1CA0B67500F91103 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118AB1CA0B67500F91103 /* ViewController.swift */; };
-		591118AF1CA0B67500F91103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 591118AD1CA0B67500F91103 /* Main.storyboard */; };
 		591118B11CA0B67500F91103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 591118B01CA0B67500F91103 /* Assets.xcassets */; };
 		591118B41CA0B67500F91103 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 591118B21CA0B67500F91103 /* LaunchScreen.storyboard */; };
 		591118BF1CA0B67500F91103 /* TheCircleVoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118BE1CA0B67500F91103 /* TheCircleVoiceTests.swift */; };
 		591118CA1CA0B67500F91103 /* TheCircleVoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118C91CA0B67500F91103 /* TheCircleVoiceUITests.swift */; };
-		591118DA1CA0B7EC00F91103 /* FontAssets in Resources */ = {isa = PBXBuildFile; fileRef = 591118D91CA0B7EC00F91103 /* FontAssets */; };
 		591118DC1CA0B81900F91103 /* RssFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118DB1CA0B81900F91103 /* RssFetcher.swift */; };
+		591118E01CA0BC2400F91103 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118DF1CA0BC2400F91103 /* ArticleViewController.swift */; };
+		591118E21CA0BC6400F91103 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118E11CA0BC6400F91103 /* ArticleTableViewCell.swift */; };
+		591118E41CA0BCA800F91103 /* lmromancaps10-oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 591118E31CA0BCA800F91103 /* lmromancaps10-oblique.otf */; };
+		591118E61CA0BCB500F91103 /* ufonts.com_old-english-text-mt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 591118E51CA0BCB500F91103 /* ufonts.com_old-english-text-mt.ttf */; };
+		591118E81CA0BD5F00F91103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 591118E71CA0BD5F00F91103 /* Main.storyboard */; };
+		591118EA1CA0BDFB00F91103 /* ArticleEnterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */; };
+		591118EC1CA0C71400F91103 /* ArticleEnterUnwind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +44,6 @@
 		591118A61CA0B67500F91103 /* TheCircleVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCircleVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		591118A91CA0B67500F91103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		591118AB1CA0B67500F91103 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		591118AE1CA0B67500F91103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		591118B01CA0B67500F91103 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		591118B31CA0B67500F91103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		591118B51CA0B67500F91103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +55,13 @@
 		591118CB1CA0B67500F91103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		591118D91CA0B7EC00F91103 /* FontAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FontAssets; sourceTree = "<group>"; };
 		591118DB1CA0B81900F91103 /* RssFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssFetcher.swift; sourceTree = "<group>"; };
+		591118DF1CA0BC2400F91103 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		591118E11CA0BC6400F91103 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		591118E31CA0BCA800F91103 /* lmromancaps10-oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "lmromancaps10-oblique.otf"; path = "FontAssets/lmromancaps10-oblique.otf"; sourceTree = "<group>"; };
+		591118E51CA0BCB500F91103 /* ufonts.com_old-english-text-mt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ufonts.com_old-english-text-mt.ttf"; path = "FontAssets/ufonts.com_old-english-text-mt.ttf"; sourceTree = "<group>"; };
+		591118E71CA0BD5F00F91103 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnterSegue.swift; sourceTree = "<group>"; };
+		591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnterUnwind.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +92,8 @@
 		5911189D1CA0B67500F91103 = {
 			isa = PBXGroup;
 			children = (
+				591118E51CA0BCB500F91103 /* ufonts.com_old-english-text-mt.ttf */,
+				591118E31CA0BCA800F91103 /* lmromancaps10-oblique.otf */,
 				591118D91CA0B7EC00F91103 /* FontAssets */,
 				591118A81CA0B67500F91103 /* TheCircleVoice */,
 				591118BD1CA0B67500F91103 /* TheCircleVoiceTests */,
@@ -102,12 +115,16 @@
 		591118A81CA0B67500F91103 /* TheCircleVoice */ = {
 			isa = PBXGroup;
 			children = (
+				591118E71CA0BD5F00F91103 /* Main.storyboard */,
+				591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */,
+				591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */,
 				591118A91CA0B67500F91103 /* AppDelegate.swift */,
 				591118AB1CA0B67500F91103 /* ViewController.swift */,
-				591118AD1CA0B67500F91103 /* Main.storyboard */,
+				591118DF1CA0BC2400F91103 /* ArticleViewController.swift */,
 				591118DB1CA0B81900F91103 /* RssFetcher.swift */,
 				591118B01CA0B67500F91103 /* Assets.xcassets */,
 				591118B21CA0B67500F91103 /* LaunchScreen.storyboard */,
+				591118E11CA0BC6400F91103 /* ArticleTableViewCell.swift */,
 				591118B51CA0B67500F91103 /* Info.plist */,
 			);
 			path = TheCircleVoice;
@@ -238,10 +255,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				591118DA1CA0B7EC00F91103 /* FontAssets in Resources */,
+				591118E41CA0BCA800F91103 /* lmromancaps10-oblique.otf in Resources */,
+				591118E61CA0BCB500F91103 /* ufonts.com_old-english-text-mt.ttf in Resources */,
 				591118B41CA0B67500F91103 /* LaunchScreen.storyboard in Resources */,
 				591118B11CA0B67500F91103 /* Assets.xcassets in Resources */,
-				591118AF1CA0B67500F91103 /* Main.storyboard in Resources */,
+				591118E81CA0BD5F00F91103 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,8 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591118EA1CA0BDFB00F91103 /* ArticleEnterSegue.swift in Sources */,
+				591118E21CA0BC6400F91103 /* ArticleTableViewCell.swift in Sources */,
 				591118AC1CA0B67500F91103 /* ViewController.swift in Sources */,
+				591118E01CA0BC2400F91103 /* ArticleViewController.swift in Sources */,
 				591118DC1CA0B81900F91103 /* RssFetcher.swift in Sources */,
+				591118EC1CA0C71400F91103 /* ArticleEnterUnwind.swift in Sources */,
 				591118AA1CA0B67500F91103 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,14 +326,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		591118AD1CA0B67500F91103 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				591118AE1CA0B67500F91103 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		591118B21CA0B67500F91103 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -493,6 +507,7 @@
 				591118D01CA0B67500F91103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		591118D11CA0B67500F91103 /* Build configuration list for PBXNativeTarget "TheCircleVoiceTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +516,7 @@
 				591118D31CA0B67500F91103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		591118D41CA0B67500F91103 /* Build configuration list for PBXNativeTarget "TheCircleVoiceUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +525,7 @@
 				591118D61CA0B67500F91103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
