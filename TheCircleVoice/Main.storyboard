@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Article" rowHeight="174" id="53Z-cg-C49" customClass="ArticleTableViewCell" customModule="TheCircleVoice" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Article" rowHeight="174" id="53Z-cg-C49" customClass="ArticleTableViewCell" customModule="TheCircleVoice" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="53Z-cg-C49" id="Njj-tk-MSY">
@@ -476,13 +476,6 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                             <rect key="frame" x="10" y="-5" width="380" height="65"/>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-E8-I93">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="returnFromArticleAction:" destination="WgJ-rd-IfI" eventType="touchUpInside" id="iGT-S9-H9O"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -495,7 +488,6 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                     <constraint firstItem="9MB-bS-flD" firstAttribute="leading" secondItem="6jT-8E-fb3" secondAttribute="leading" id="MY0-jz-3vm"/>
                                     <constraint firstAttribute="trailing" secondItem="6jT-8E-fb3" secondAttribute="trailing" constant="53" id="NKs-SX-Ulc"/>
                                     <constraint firstItem="Tcq-q1-RZV" firstAttribute="leading" secondItem="dMh-1j-8ys" secondAttribute="leading" id="Nep-Hr-eQc"/>
-                                    <constraint firstItem="zXT-E8-I93" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" constant="13" id="WsT-fL-06J"/>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="width" secondItem="dMh-1j-8ys" secondAttribute="width" id="ZJk-Ht-le7"/>
                                     <constraint firstItem="6jT-8E-fb3" firstAttribute="leading" secondItem="dMh-1j-8ys" secondAttribute="leading" constant="10" id="ahV-sJ-hDP"/>
                                     <constraint firstItem="6jT-8E-fb3" firstAttribute="trailing" secondItem="9MB-bS-flD" secondAttribute="trailing" id="cJn-uw-wry"/>
@@ -507,7 +499,6 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                     <constraint firstItem="9MB-bS-flD" firstAttribute="leading" secondItem="6jT-8E-fb3" secondAttribute="leading" id="l0U-SJ-qYK"/>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" id="lXN-4G-vS5"/>
                                     <constraint firstItem="9MB-bS-flD" firstAttribute="top" secondItem="6jT-8E-fb3" secondAttribute="bottom" constant="7" id="ndI-GG-bgt"/>
-                                    <constraint firstAttribute="trailing" secondItem="zXT-E8-I93" secondAttribute="trailing" constant="23" id="oO1-4v-LMD"/>
                                     <constraint firstItem="6jT-8E-fb3" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" constant="75" id="qHa-td-Bpv"/>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="centerY" secondItem="dMh-1j-8ys" secondAttribute="centerY" id="quV-1Y-gew"/>
                                     <constraint firstItem="Tcq-q1-RZV" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" constant="20" id="tAO-hs-4f5"/>
@@ -526,11 +517,8 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <exclude reference="CAF-it-7M4"/>
                                         <exclude reference="Tcq-q1-RZV"/>
                                         <exclude reference="wfm-9z-r4U"/>
-                                        <exclude reference="zXT-E8-I93"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="WsT-fL-06J"/>
-                                        <exclude reference="oO1-4v-LMD"/>
                                         <exclude reference="NKs-SX-Ulc"/>
                                         <exclude reference="ahV-sJ-hDP"/>
                                         <exclude reference="cJn-uw-wry"/>
@@ -570,11 +558,8 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <include reference="CAF-it-7M4"/>
                                         <include reference="Tcq-q1-RZV"/>
                                         <include reference="wfm-9z-r4U"/>
-                                        <include reference="zXT-E8-I93"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="WsT-fL-06J"/>
-                                        <include reference="oO1-4v-LMD"/>
                                         <include reference="NKs-SX-Ulc"/>
                                         <include reference="ahV-sJ-hDP"/>
                                         <include reference="cJn-uw-wry"/>
@@ -616,6 +601,18 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLG-tD-bm7" userLabel="HeaderHelperView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="85"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NQY-tF-cuZ" appends="YES" id="KTt-6h-RWD"/>
+                                </connections>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CV_Article_Preview-SectionSlice" translatesAutoresizingMaskIntoConstraints="NO" id="tTz-ay-Qam">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
@@ -647,18 +644,19 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                             <mask key="subviews">
                                 <exclude reference="dMh-1j-8ys"/>
                                 <exclude reference="6sc-J0-NPx"/>
+                                <exclude reference="pLG-tD-bm7"/>
                                 <exclude reference="tTz-ay-Qam"/>
                                 <exclude reference="OU5-uN-TPg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="C2J-uC-8Mg"/>
-                                <exclude reference="UxY-iy-vB7"/>
-                                <exclude reference="dmn-eh-vCr"/>
-                                <exclude reference="oQ5-Qx-VGt"/>
                                 <exclude reference="0qo-5Y-dha"/>
                                 <exclude reference="1ge-Zz-iEm"/>
                                 <exclude reference="dg7-TB-eUE"/>
                                 <exclude reference="ySS-HO-s14"/>
+                                <exclude reference="C2J-uC-8Mg"/>
+                                <exclude reference="UxY-iy-vB7"/>
+                                <exclude reference="dmn-eh-vCr"/>
+                                <exclude reference="oQ5-Qx-VGt"/>
                                 <exclude reference="D6j-j4-NqL"/>
                                 <exclude reference="JKF-hr-YT8"/>
                                 <exclude reference="VnH-Ie-Tlb"/>
@@ -670,18 +668,19 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                             <mask key="subviews">
                                 <include reference="dMh-1j-8ys"/>
                                 <include reference="6sc-J0-NPx"/>
+                                <include reference="pLG-tD-bm7"/>
                                 <exclude reference="tTz-ay-Qam"/>
                                 <exclude reference="OU5-uN-TPg"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="C2J-uC-8Mg"/>
-                                <include reference="UxY-iy-vB7"/>
-                                <include reference="dmn-eh-vCr"/>
-                                <include reference="oQ5-Qx-VGt"/>
                                 <include reference="0qo-5Y-dha"/>
                                 <include reference="1ge-Zz-iEm"/>
                                 <exclude reference="dg7-TB-eUE"/>
                                 <include reference="ySS-HO-s14"/>
+                                <include reference="C2J-uC-8Mg"/>
+                                <include reference="UxY-iy-vB7"/>
+                                <include reference="dmn-eh-vCr"/>
+                                <include reference="oQ5-Qx-VGt"/>
                                 <include reference="D6j-j4-NqL"/>
                                 <include reference="JKF-hr-YT8"/>
                                 <include reference="VnH-Ie-Tlb"/>
@@ -702,6 +701,11 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4l5-rk-xbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rRf-UI-Lmv" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="NQY-tF-cuZ">
+                    <connections>
+                        <action selector="returnFromArticleAction:" destination="WgJ-rd-IfI" id="Byv-2e-IzC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2941.5" y="396"/>
         </scene>

@@ -11,6 +11,10 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, XMLParserDelegate {
 
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     //assign the xml parser object to a local variable
     var xmlParser : RssFetcher!
 
