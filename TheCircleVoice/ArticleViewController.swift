@@ -40,6 +40,8 @@ class ArticleViewController: UIViewController {
             SectionText = "Opinions"
         } else if SectionText == "\n\t\t\t\tNews" {
             SectionText = "News"
+        } else if SectionText == "\n\t\tSports" {
+            SectionText = "Sports"
         } else {
             SectionText = (SectionText! as NSString).substringFromIndex(5)
         }

@@ -96,6 +96,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)!
     }
 
+    //hamburger code
+    
+    var isOpen:Bool = false
+    
+    @IBOutlet weak var topView: UIView!
+    @IBAction func HamburgerActivated(sender: AnyObject?) {
+        
+        print("hamburger activated")
+        
+        let optionsOut = UIViewAnimationOptions.CurveEaseOut
+        let optionsIn = UIViewAnimationOptions.CurveEaseIn
+        
+        if isOpen == false{
+            UIView.animateWithDuration(0.2, delay: 0.0, options: optionsOut, animations: {
+            
+                self.topView.frame = CGRect(x: 201, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
+            
+                }, completion: nil)
+            isOpen = true
+            TableView.allowsSelection = false
+            TableView.scrollEnabled = false
+        } else {
+            UIView.animateWithDuration(0.2, delay: 0.0, options: optionsIn, animations: {
+                
+                self.topView.frame = CGRect(x: 0, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
+                
+                }, completion: nil)
+            isOpen = false
+            TableView.allowsSelection = true
+            TableView.scrollEnabled = true
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -21,6 +21,7 @@
 		591118E81CA0BD5F00F91103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 591118E71CA0BD5F00F91103 /* Main.storyboard */; };
 		591118EA1CA0BDFB00F91103 /* ArticleEnterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */; };
 		591118EC1CA0C71400F91103 /* ArticleEnterUnwind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */; };
+		591118F21CA0EA5000F91103 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118F11CA0EA5000F91103 /* AboutUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		591118A61CA0B67500F91103 /* TheCircleVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCircleVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		591118A61CA0B67500F91103 /* Circle Voice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circle Voice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		591118A91CA0B67500F91103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		591118AB1CA0B67500F91103 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		591118B01CA0B67500F91103 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		591118E71CA0BD5F00F91103 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnterSegue.swift; sourceTree = "<group>"; };
 		591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnterUnwind.swift; sourceTree = "<group>"; };
+		591118F11CA0EA5000F91103 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = ../AboutUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +107,7 @@
 		591118A71CA0B67500F91103 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				591118A61CA0B67500F91103 /* TheCircleVoice.app */,
+				591118A61CA0B67500F91103 /* Circle Voice.app */,
 				591118BA1CA0B67500F91103 /* TheCircleVoiceTests.xctest */,
 				591118C51CA0B67500F91103 /* TheCircleVoiceUITests.xctest */,
 			);
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				591118E71CA0BD5F00F91103 /* Main.storyboard */,
+				591118F11CA0EA5000F91103 /* AboutUsViewController.swift */,
 				591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */,
 				591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */,
 				591118A91CA0B67500F91103 /* AppDelegate.swift */,
@@ -165,7 +168,7 @@
 			);
 			name = TheCircleVoice;
 			productName = TheCircleVoice;
-			productReference = 591118A61CA0B67500F91103 /* TheCircleVoice.app */;
+			productReference = 591118A61CA0B67500F91103 /* Circle Voice.app */;
 			productType = "com.apple.product-type.application";
 		};
 		591118B91CA0B67500F91103 /* TheCircleVoiceTests */ = {
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591118F21CA0EA5000F91103 /* AboutUsViewController.swift in Sources */,
 				591118EA1CA0BDFB00F91103 /* ArticleEnterSegue.swift in Sources */,
 				591118E21CA0BC6400F91103 /* ArticleTableViewCell.swift in Sources */,
 				591118AC1CA0B67500F91103 /* ViewController.swift in Sources */,
@@ -425,7 +429,7 @@
 				INFOPLIST_FILE = TheCircleVoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamesHovet.TheCircleVoice;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Circle Voice";
 			};
 			name = Debug;
 		};
@@ -436,7 +440,7 @@
 				INFOPLIST_FILE = TheCircleVoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamesHovet.TheCircleVoice;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Circle Voice";
 			};
 			name = Release;
 		};

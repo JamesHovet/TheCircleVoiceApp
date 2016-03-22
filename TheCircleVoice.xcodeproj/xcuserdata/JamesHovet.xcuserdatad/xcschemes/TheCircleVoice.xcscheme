@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "591118A51CA0B67500F91103"
-               BuildableName = "TheCircleVoice.app"
+               BuildableName = "Circle Voice.app"
                BlueprintName = "TheCircleVoice"
                ReferencedContainer = "container:TheCircleVoice.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "591118A51CA0B67500F91103"
-            BuildableName = "TheCircleVoice.app"
+            BuildableName = "Circle Voice.app"
             BlueprintName = "TheCircleVoice"
             ReferencedContainer = "container:TheCircleVoice.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "591118A51CA0B67500F91103"
-            BuildableName = "TheCircleVoice.app"
+            BuildableName = "Circle Voice.app"
             BlueprintName = "TheCircleVoice"
             ReferencedContainer = "container:TheCircleVoice.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "591118A51CA0B67500F91103"
-            BuildableName = "TheCircleVoice.app"
+            BuildableName = "Circle Voice.app"
             BlueprintName = "TheCircleVoice"
             ReferencedContainer = "container:TheCircleVoice.xcodeproj">
          </BuildableReference>
