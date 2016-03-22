@@ -21,7 +21,7 @@
         <!--View Controller-->
         <scene sceneID="7RP-HG-7Pb">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="b6Z-Qt-xEc" customClass="ViewController" customModule="TheCircleVoice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="b6Z-Qt-xEc" customClass="ViewController" customModule="Circle_Voice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pPb-Sr-vnE"/>
                         <viewControllerLayoutGuide type="bottom" id="QoC-t4-98Z"/>
@@ -52,6 +52,9 @@
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ODq-ef-Fs3" appends="YES" id="9sK-qE-BxP"/>
+                                </connections>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhX-Pj-B8s" userLabel="Content">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -60,7 +63,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Article" rowHeight="174" id="53Z-cg-C49" customClass="ArticleTableViewCell" customModule="TheCircleVoice" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Article" rowHeight="174" id="53Z-cg-C49" customClass="ArticleTableViewCell" customModule="Circle_Voice" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="53Z-cg-C49" id="Njj-tk-MSY">
@@ -167,7 +170,7 @@
                                                     <outlet property="ArticlePreview" destination="2N4-S5-Oi7" id="W2v-sF-RGv"/>
                                                     <outlet property="ArticleTitle" destination="XO5-tO-FPm" id="JmN-UO-XpJ"/>
                                                     <outlet property="Byline" destination="8Wk-cc-Wuh" id="kdw-qU-2vu"/>
-                                                    <segue destination="WgJ-rd-IfI" kind="custom" identifier="EnterArticleFromTable" customClass="ArticleEnterSeque" customModule="TheCircleVoice" customModuleProvider="target" id="uZz-Vr-kZc"/>
+                                                    <segue destination="WgJ-rd-IfI" kind="custom" identifier="EnterArticleFromTable" customClass="ArticleEnterSeque" customModule="Circle_Voice" customModuleProvider="target" id="uZz-Vr-kZc"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -295,13 +298,90 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="unF-ns-GIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ODq-ef-Fs3">
+                    <connections>
+                        <segue destination="NLm-Be-FNv" kind="presentation" modalTransitionStyle="coverVertical" id="gQB-hd-Ey3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2094" y="396"/>
+        </scene>
+        <!--About Us View Controller-->
+        <scene sceneID="uU2-nN-Rdt">
+            <objects>
+                <viewController id="NLm-Be-FNv" customClass="AboutUsViewController" customModule="Circle_Voice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O5T-1b-y7t"/>
+                        <viewControllerLayoutGuide type="bottom" id="PXM-5i-vK2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p6t-b4-ldB">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJt-Td-E4n">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="b6Z-Qt-xEc" kind="show" animates="NO" id="TyJ-Xb-c7X"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-RG-4lR">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pbl-RG-4lR" firstAttribute="bottom" secondItem="PXM-5i-vK2" secondAttribute="top" id="8QQ-st-JBG"/>
+                            <constraint firstItem="pJt-Td-E4n" firstAttribute="top" secondItem="O5T-1b-y7t" secondAttribute="bottom" id="Cl3-WA-ldf"/>
+                            <constraint firstItem="pJt-Td-E4n" firstAttribute="leading" secondItem="p6t-b4-ldB" secondAttribute="leadingMargin" constant="6" id="JsI-My-JE4"/>
+                            <constraint firstItem="pbl-RG-4lR" firstAttribute="leading" secondItem="pJt-Td-E4n" secondAttribute="leading" id="aPL-8z-fR9"/>
+                            <constraint firstItem="pbl-RG-4lR" firstAttribute="top" secondItem="pJt-Td-E4n" secondAttribute="bottom" constant="6" id="dyl-al-KjG"/>
+                            <constraint firstItem="pbl-RG-4lR" firstAttribute="trailing" secondItem="p6t-b4-ldB" secondAttribute="trailingMargin" id="gTN-PZ-ZCj"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="pJt-Td-E4n"/>
+                                <exclude reference="pbl-RG-4lR"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Cl3-WA-ldf"/>
+                                <exclude reference="JsI-My-JE4"/>
+                                <exclude reference="8QQ-st-JBG"/>
+                                <exclude reference="aPL-8z-fR9"/>
+                                <exclude reference="dyl-al-KjG"/>
+                                <exclude reference="gTN-PZ-ZCj"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="pJt-Td-E4n"/>
+                                <include reference="pbl-RG-4lR"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Cl3-WA-ldf"/>
+                                <include reference="JsI-My-JE4"/>
+                                <include reference="8QQ-st-JBG"/>
+                                <include reference="aPL-8z-fR9"/>
+                                <include reference="dyl-al-KjG"/>
+                                <include reference="gTN-PZ-ZCj"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="AboutUsText" destination="pbl-RG-4lR" id="a2c-N4-BuH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="009-lp-pFK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2908.5" y="-294"/>
         </scene>
         <!--Article View Controller-->
         <scene sceneID="yYW-kB-bYE">
             <objects>
-                <viewController id="WgJ-rd-IfI" customClass="ArticleViewController" customModule="TheCircleVoice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WgJ-rd-IfI" customClass="ArticleViewController" customModule="Circle_Voice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FDp-SW-9ii"/>
                         <viewControllerLayoutGuide type="bottom" id="ncY-yM-lTJ"/>
@@ -310,7 +390,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMh-1j-8ys" userLabel="ArticleScrollView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArticleSectionSlice" translatesAutoresizingMaskIntoConstraints="NO" id="IHk-f1-gQ7">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMh-1j-8ys" userLabel="ArticleScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y57-eR-G51" userLabel="Content View">
@@ -329,7 +413,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                 <variation key="widthClass=compact" misplaced="YES">
                                                     <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
-                                                    <rect key="frame" x="8" y="279" width="372" height="834.5"/>
+                                                    <rect key="frame" x="8" y="279" width="372" height="835"/>
                                                 </variation>
                                             </textView>
                                         </subviews>
@@ -354,7 +438,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="1133.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="1134"/>
                                             <mask key="constraints">
                                                 <exclude reference="kZF-t9-1ph"/>
                                                 <exclude reference="sMb-US-zsO"/>
@@ -449,7 +533,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SectionColor" translatesAutoresizingMaskIntoConstraints="NO" id="Tcq-q1-RZV">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArticleSectionSlice" translatesAutoresizingMaskIntoConstraints="NO" id="Tcq-q1-RZV">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -606,14 +690,24 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="S7j-oc-dkZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S7j-oc-dkZ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="S7j-oc-dkZ"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="NQY-tF-cuZ" appends="YES" id="KTt-6h-RWD"/>
                                 </connections>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CV_Article_Preview-SectionSlice" translatesAutoresizingMaskIntoConstraints="NO" id="tTz-ay-Qam">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorBar" translatesAutoresizingMaskIntoConstraints="NO" id="tTz-ay-Qam">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Features" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-uN-TPg">
@@ -626,13 +720,22 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="IHk-f1-gQ7" firstAttribute="top" secondItem="pLG-tD-bm7" secondAttribute="top" id="07K-XO-IPY"/>
                             <constraint firstItem="OU5-uN-TPg" firstAttribute="top" secondItem="Tuz-Fe-Idh" secondAttribute="topMargin" id="0qo-5Y-dha"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OU5-uN-TPg" secondAttribute="trailing" constant="-20" id="1ge-Zz-iEm"/>
+                            <constraint firstItem="IHk-f1-gQ7" firstAttribute="trailing" secondItem="6sc-J0-NPx" secondAttribute="trailing" id="6XZ-XZ-cDC"/>
+                            <constraint firstItem="ncY-yM-lTJ" firstAttribute="top" secondItem="IHk-f1-gQ7" secondAttribute="bottom" constant="200" id="BF8-z7-XrK">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="6sc-J0-NPx" firstAttribute="bottom" secondItem="FDp-SW-9ii" secondAttribute="bottom" id="C2J-uC-8Mg"/>
                             <constraint firstItem="dMh-1j-8ys" firstAttribute="leading" secondItem="Tuz-Fe-Idh" secondAttribute="leading" id="D6j-j4-NqL"/>
+                            <constraint firstItem="IHk-f1-gQ7" firstAttribute="trailing" secondItem="pLG-tD-bm7" secondAttribute="trailing" id="I4U-nA-6m5"/>
                             <constraint firstAttribute="trailing" secondItem="dMh-1j-8ys" secondAttribute="trailing" id="JKF-hr-YT8"/>
+                            <constraint firstItem="IHk-f1-gQ7" firstAttribute="leading" secondItem="6sc-J0-NPx" secondAttribute="leading" id="Rvj-HH-WaH"/>
                             <constraint firstItem="6sc-J0-NPx" firstAttribute="leading" secondItem="dMh-1j-8ys" secondAttribute="leading" id="UxY-iy-vB7"/>
                             <constraint firstItem="dMh-1j-8ys" firstAttribute="top" secondItem="OU5-uN-TPg" secondAttribute="bottom" id="VnH-Ie-Tlb"/>
+                            <constraint firstItem="IHk-f1-gQ7" firstAttribute="top" secondItem="6sc-J0-NPx" secondAttribute="top" id="ctp-tB-9px"/>
+                            <constraint firstItem="IHk-f1-gQ7" firstAttribute="leading" secondItem="pLG-tD-bm7" secondAttribute="leading" id="cyj-xz-52C"/>
                             <constraint firstItem="OU5-uN-TPg" firstAttribute="top" secondItem="Tuz-Fe-Idh" secondAttribute="topMargin" id="dg7-TB-eUE"/>
                             <constraint firstItem="6sc-J0-NPx" firstAttribute="trailing" secondItem="dMh-1j-8ys" secondAttribute="trailing" id="dmn-eh-vCr"/>
                             <constraint firstItem="6sc-J0-NPx" firstAttribute="top" secondItem="Tuz-Fe-Idh" secondAttribute="top" id="oQ5-Qx-VGt"/>
@@ -642,6 +745,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="IHk-f1-gQ7"/>
                                 <exclude reference="dMh-1j-8ys"/>
                                 <exclude reference="6sc-J0-NPx"/>
                                 <exclude reference="pLG-tD-bm7"/>
@@ -657,15 +761,23 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                 <exclude reference="UxY-iy-vB7"/>
                                 <exclude reference="dmn-eh-vCr"/>
                                 <exclude reference="oQ5-Qx-VGt"/>
+                                <exclude reference="07K-XO-IPY"/>
+                                <exclude reference="6XZ-XZ-cDC"/>
+                                <exclude reference="I4U-nA-6m5"/>
+                                <exclude reference="Rvj-HH-WaH"/>
+                                <exclude reference="ctp-tB-9px"/>
+                                <exclude reference="cyj-xz-52C"/>
                                 <exclude reference="D6j-j4-NqL"/>
                                 <exclude reference="JKF-hr-YT8"/>
                                 <exclude reference="VnH-Ie-Tlb"/>
                                 <exclude reference="yJf-gI-nHs"/>
                                 <exclude reference="yaf-Z3-qhu"/>
+                                <exclude reference="BF8-z7-XrK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="IHk-f1-gQ7"/>
                                 <include reference="dMh-1j-8ys"/>
                                 <include reference="6sc-J0-NPx"/>
                                 <include reference="pLG-tD-bm7"/>
@@ -681,11 +793,18 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                 <include reference="UxY-iy-vB7"/>
                                 <include reference="dmn-eh-vCr"/>
                                 <include reference="oQ5-Qx-VGt"/>
+                                <include reference="07K-XO-IPY"/>
+                                <include reference="6XZ-XZ-cDC"/>
+                                <include reference="I4U-nA-6m5"/>
+                                <include reference="Rvj-HH-WaH"/>
+                                <include reference="ctp-tB-9px"/>
+                                <include reference="cyj-xz-52C"/>
                                 <include reference="D6j-j4-NqL"/>
                                 <include reference="JKF-hr-YT8"/>
                                 <include reference="VnH-Ie-Tlb"/>
                                 <include reference="yJf-gI-nHs"/>
                                 <include reference="yaf-Z3-qhu"/>
+                                <include reference="BF8-z7-XrK"/>
                             </mask>
                         </variation>
                     </view>
@@ -711,12 +830,11 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
         </scene>
     </scenes>
     <resources>
-        <image name="CV_Article_Preview-SectionSlice" width="1" height="104"/>
+        <image name="ArticleSectionSlice" width="1" height="104"/>
         <image name="ColorBar" width="2" height="42"/>
         <image name="GreyColor@Universal" width="1" height="1"/>
         <image name="Hamburger" width="43" height="43"/>
         <image name="Logo" width="42" height="43"/>
-        <image name="SectionColor" width="201" height="2"/>
         <image name="Words" width="205" height="43"/>
     </resources>
 </document>

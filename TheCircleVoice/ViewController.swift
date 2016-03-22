@@ -74,9 +74,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "EnterArticleFromTable" {
             let secondViewController = segue.destinationViewController as! ArticleViewController
             secondViewController.message = sender?.ArticleData
-        } else {
-            let secondViewController = segue.destinationViewController as! ArticleViewController
-            secondViewController.message = xmlParser.arrParsedData[0]
         }
     }
     
