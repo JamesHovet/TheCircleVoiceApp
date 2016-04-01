@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print("did load")
         xmlParser = RssFetcher()
         xmlParser.delegate = self
-        for (var i = 1;i<5;i++){
+        for (var i = 1;i<5;i += 1){
             //URL of the CV rss feed
             let URL = NSURL(string: "http://thecirclevoice.org/feed/?paged="+i.description)
             xmlParser.startParsingWithContentsOfURL(URL!)
@@ -100,32 +100,56 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var isOpen:Bool = false
     
+    @IBOutlet weak var HamburgerReturnHelperView: UIView!
     @IBOutlet weak var topView: UIView!
+
+    func slideOut(){
+        let optionsOut = UIViewAnimationOptions.CurveEaseOut
+        
+        UIView.animateWithDuration(0.2, delay: 0.0, options: optionsOut, animations: {
+            
+            self.topView.frame = CGRect(x: 201, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
+            
+            }, completion: nil)
+        isOpen = true
+        TableView.allowsSelection = false
+        TableView.scrollEnabled = false
+    }
+    
+    func slideIn(){
+        let optionsIn = UIViewAnimationOptions.CurveEaseIn
+        
+        UIView.animateWithDuration(0.2, delay: 0.0, options: optionsIn, animations: {
+            
+            self.topView.frame = CGRect(x: 0, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
+            
+            }, completion: nil)
+        isOpen = false
+        TableView.allowsSelection = true
+        TableView.scrollEnabled = true
+    }
+    
     @IBAction func HamburgerActivated(sender: AnyObject?) {
         
         print("hamburger activated")
+        print(sender.debugDescription)
         
-        let optionsOut = UIViewAnimationOptions.CurveEaseOut
-        let optionsIn = UIViewAnimationOptions.CurveEaseIn
-        
-        if isOpen == false{
-            UIView.animateWithDuration(0.2, delay: 0.0, options: optionsOut, animations: {
+        if sender is UISwipeGestureRecognizer{
             
-                self.topView.frame = CGRect(x: 201, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
+            if isOpen == false && sender?.direction == UISwipeGestureRecognizerDirection.Right{
+                slideOut()
+            } else if isOpen == true && sender?.direction == UISwipeGestureRecognizerDirection.Left{
+                slideIn()
+            }
             
-                }, completion: nil)
-            isOpen = true
-            TableView.allowsSelection = false
-            TableView.scrollEnabled = false
         } else {
-            UIView.animateWithDuration(0.2, delay: 0.0, options: optionsIn, animations: {
-                
-                self.topView.frame = CGRect(x: 0, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
-                
-                }, completion: nil)
-            isOpen = false
-            TableView.allowsSelection = true
-            TableView.scrollEnabled = true
+            
+            if isOpen == false{
+                slideOut()
+            } else {
+                slideIn()
+            }
+            
         }
     }
     

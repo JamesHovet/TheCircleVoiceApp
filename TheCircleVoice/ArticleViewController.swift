@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArticleViewController: UIViewController {
+class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     //get data from segue
     var message:Dictionary<String,String>!
@@ -17,6 +17,7 @@ class ArticleViewController: UIViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+    @IBOutlet weak var HeaderHelperView: UIView!
     
     @IBOutlet weak var SectionTitle: UILabel!
     
