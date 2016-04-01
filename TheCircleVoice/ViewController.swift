@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, XMLParserDelegate {
 
+    @IBOutlet weak var SectionColorImage: UIImageView!
+    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -62,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print("did load")
         xmlParser = RssFetcher()
         xmlParser.delegate = self
-        for (var i = 1;i<5;i += 1){
+        for i in 1...5{
             //URL of the CV rss feed
             let URL = NSURL(string: "http://thecirclevoice.org/feed/?paged="+i.description)
             xmlParser.startParsingWithContentsOfURL(URL!)
@@ -80,7 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //return from segue
     
     @IBAction func returnFromSegueActions(sender : UIStoryboardSegue){
-        
+        self.topView.frame = CGRect(x: 0, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
     }
 
     override func segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue {
@@ -100,20 +102,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var isOpen:Bool = false
     
-    @IBOutlet weak var HamburgerReturnHelperView: UIView!
+    
     @IBOutlet weak var topView: UIView!
-
+    @IBOutlet weak var HamburgerReturnHelperView: UIView!
+    
     func slideOut(){
+        var HamburgerWidth = SectionColorImage.frame.width
+        HamburgerWidth -= 10
         let optionsOut = UIViewAnimationOptions.CurveEaseOut
         
         UIView.animateWithDuration(0.2, delay: 0.0, options: optionsOut, animations: {
             
-            self.topView.frame = CGRect(x: 201, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
+            self.topView.frame = CGRect(x: HamburgerWidth, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
             
             }, completion: nil)
         isOpen = true
         TableView.allowsSelection = false
         TableView.scrollEnabled = false
+        HamburgerReturnHelperView.alpha = 0.1
     }
     
     func slideIn(){
@@ -127,6 +133,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         isOpen = false
         TableView.allowsSelection = true
         TableView.scrollEnabled = true
+        HamburgerReturnHelperView.alpha = 0.0
     }
     
     @IBAction func HamburgerActivated(sender: AnyObject?) {
