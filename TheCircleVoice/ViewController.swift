@@ -9,10 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, XMLParserDelegate {
-
+    
+    var URLHeader:String = "http://thecirclevoice.org/feed/?paged="
+    
     @IBOutlet weak var SectionColorImage: UIImageView!
     
-    
+//    var sections = ["home","news","Opinions","Features","Sports","Arts"]
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -57,19 +59,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var TableView: UITableView!
     
-    
+    func parse(){
+        xmlParser = RssFetcher()
+        xmlParser.delegate = self
+        xmlParser.arrParsedData = []
+        for i in 1...5{
+            //URL of the CV rss feed
+            let URL = NSURL(string: URLHeader+i.description)
+            print(URL.debugDescription)
+            xmlParser.startParsingWithContentsOfURL(URL!)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("did load")
-        xmlParser = RssFetcher()
-        xmlParser.delegate = self
-        for i in 1...5{
-            //URL of the CV rss feed
-            let URL = NSURL(string: "http://thecirclevoice.org/feed/?paged="+i.description)
-            xmlParser.startParsingWithContentsOfURL(URL!)
-        }
+        parse()
     }
     
     //prepare for segue
@@ -160,6 +166,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         }
+    }
+    
+    @IBAction func ActivateSwitchSection(sender: UIButton) {
+        switchSection((sender.titleLabel?.text)!)
+    }
+    
+    //section switching code
+    
+    
+    
+    func switchSection(section:String){
+        
+        if section == "Home"{
+            URLHeader = "http://thecirclevoice.org/feed/?paged="
+        } else {
+            URLHeader = "http://thecirclevoice.org/category/" + section + "/feed/?paged="
+        }
+        
+        parse()
+        
+        TableView.reloadData()
+        print("attempt reload data")
+        TableView.contentOffset = CGPointMake(0, 0 - TableView.contentInset.top);
+        slideIn()
     }
     
     

@@ -62,6 +62,9 @@
                                 <state key="normal" title="News">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="ActivateSwitchSection:" destination="b6Z-Qt-xEc" eventType="touchUpInside" id="EWe-cv-PFT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bP-Xy-rZN">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -85,6 +88,9 @@
                                         <include reference="4EI-3E-ilt"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="ActivateSwitchSection:" destination="b6Z-Qt-xEc" eventType="touchUpInside" id="rPV-5y-dLf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3S2-zY-PeQ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -100,11 +106,15 @@
                                         <exclude reference="5li-sp-QEe"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="12" y="129" width="140" height="53"/>
                                     <mask key="constraints">
                                         <include reference="5li-sp-QEe"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="ActivateSwitchSection:" destination="b6Z-Qt-xEc" eventType="touchUpInside" id="cnq-hg-QI5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1x-Gk-ggF">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -112,6 +122,9 @@
                                 <state key="normal" title="Features">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="ActivateSwitchSection:" destination="b6Z-Qt-xEc" eventType="touchUpInside" id="WNL-DK-7O4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcn-89-Qwj">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -119,6 +132,12 @@
                                 <state key="normal" title="Sports">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="13" y="244" width="176" height="53"/>
+                                </variation>
+                                <connections>
+                                    <action selector="ActivateSwitchSection:" destination="b6Z-Qt-xEc" eventType="touchUpInside" id="Te1-Te-oxd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4o-e8-9Ep">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -126,6 +145,12 @@
                                 <state key="normal" title="Arts">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="13" y="305" width="176" height="53"/>
+                                </variation>
+                                <connections>
+                                    <action selector="ActivateSwitchSection:" destination="b6Z-Qt-xEc" eventType="touchUpInside" id="p7Q-YK-nY0"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUY-gz-GmI" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
