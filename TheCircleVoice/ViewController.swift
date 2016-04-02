@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var SectionColorImage: UIImageView!
     
     
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
@@ -101,6 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //hamburger code
     
     var isOpen:Bool = false
+   
     
     
     @IBOutlet weak var topView: UIView!
@@ -127,7 +129,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         UIView.animateWithDuration(0.2, delay: 0.0, options: optionsIn, animations: {
             
-            self.topView.frame = CGRect(x: 0, y: 0, width: self.topView.frame.width, height: self.topView.frame.height)
+            self.topView.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
             
             }, completion: nil)
         isOpen = false
