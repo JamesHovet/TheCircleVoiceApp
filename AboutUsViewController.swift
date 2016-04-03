@@ -10,6 +10,7 @@ import UIKit
 
 class AboutUsViewController: UIViewController {
 
+    //var message:Dictionary<String,String>!
 
     @IBOutlet weak var AboutUsText: UITextView!
    
@@ -17,6 +18,9 @@ class AboutUsViewController: UIViewController {
     
     var html : String = ""
     
+    @IBAction func ReturnFromAboutUs(sender: AnyObject) {
+        self.performSegueWithIdentifier("FromArticleUnwind", sender: self)
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()
