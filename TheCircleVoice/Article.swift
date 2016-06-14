@@ -61,11 +61,14 @@ class Article: NSObject, NSCoding {
     
     convenience init(d:Dictionary<String,String>){
         
-        let start = d["link"]?.startIndex.advancedBy(26)
-        let end = start?.advancedBy(4)
-        let range = Range<String.Index>(start!..<end!)
+        let URL = d["link"]
         
-        let UID = 0
+        var myNSString = URL! as NSString
+        myNSString = myNSString.substringWithRange(NSRange(location: 26, length: 4))
+        
+        let UID = Int(myNSString as String)
+        
+        
         let headline = d["title"]
         let byline = d["dc:creator"]
         let date = d["pubDate"]
@@ -74,7 +77,7 @@ class Article: NSObject, NSCoding {
         let section = d["category"]
         let summary = d["description"]
         
-        self.init(UID:UID,headline: headline!,byline: byline!,date: date!, bodyText: bodyText!, featuredImg: featuredImg, section: section!, summary: summary!)
+        self.init(UID:UID!,headline: headline!,byline: byline!,date: date!, bodyText: bodyText!, featuredImg: featuredImg, section: section!, summary: summary!)
     }
     
     // MARK: NSCoding
