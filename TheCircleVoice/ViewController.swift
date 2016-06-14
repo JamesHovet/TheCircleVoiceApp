@@ -22,7 +22,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var topView: UIView!
     
-   
+    // Load and Save Articles
+    
+    func saveArticles() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(articles, toFile: Article.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save articles...")
+        }
+    }
+    
+    func loadArticles() -> [Article]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Article.ArchiveURL.path!) as? [Article]
+    }
+    
+    
+    // MARK: Article Code
+    
+    var articles : [Article] = []
+    
+    func loadDebugArticle(){
+        articles.append(Article(UID: 0, headline: "This is a Test Article", byline: "By: James Hovet '18", date: "A random Date", bodyText: "LOREM IPSUM DOLOR SIT body copy", featuredImg: nil, section: "News", summary: "Lorem ipsum dolor sit summary"))
+    }
+    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -40,6 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return 10
         }
     }
+    
     //assign number of sections
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -50,13 +72,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell =  tableView.dequeueReusableCellWithIdentifier("Article") as! ArticleTableViewCell
         
         let currentDict = data[currentSection]![indexPath.row] as Dictionary<String,String>
+        let currentArticle = Article(d: currentDict)
         
-        cell.ArticleData = currentDict
+        cell.ArticleObject = currentArticle
 
-        cell.ArticleTitle.text = currentDict["title"]
-        cell.Byline.text = (currentDict["dc:creator"]! as NSString).substringFromIndex(3)
-        let index = currentDict["description"]?.endIndex.advancedBy(-10)
-        cell.ArticlePreview.text = currentDict["description"]!.substringToIndex(index!)
+        cell.ArticleTitle.text = currentArticle.headline
+        cell.Byline.text = (currentArticle.byline as NSString).substringFromIndex(3)
+        let index = currentArticle.summary.endIndex.advancedBy(-10)
+        cell.ArticlePreview.text = currentArticle.summary.substringToIndex(index)
         
         
         return cell
@@ -104,9 +127,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var tmp = loadArticles()
         
-        print("topView frame is:")
-        print(topView.frame)
+        if tmp != nil {
+            articles = tmp!
+        }
+        
+        loadDebugArticle()
+        loadDebugArticle()
+        
         
         // Do any additional setup after loading the view, typically from a nib.
         //print("did load")
@@ -135,7 +164,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "EnterArticleFromTable" {
             let secondViewController = segue.destinationViewController as! ArticleViewController
-            secondViewController.message = sender?.ArticleData
+            secondViewController.message = (sender?.ArticleObject)!.toDict()
         } else {
             
         }

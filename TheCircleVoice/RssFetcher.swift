@@ -42,7 +42,7 @@ class RssFetcher : NSObject, NSXMLParserDelegate {
     
     //this is so that we only get the ones we care about
     func parser(parser: NSXMLParser, foundCharacters string: String) {
-        if currentElement == "title" || currentElement == "pubDate" || currentElement == "dc:creator" || currentElement == "category" || currentElement == "content:encoded" || currentElement == "description"{
+        if currentElement == "title" || currentElement == "pubDate" || currentElement == "dc:creator" || currentElement == "category" || currentElement == "content:encoded" || currentElement == "description" || currentElement == "link"{
             foundCharacters += string
         }
     }

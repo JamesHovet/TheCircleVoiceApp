@@ -59,6 +59,24 @@ class Article: NSObject, NSCoding {
         self.init(UID:UID,headline: headline,byline: byline,date: date, bodyText: bodyText, featuredImg: featuredImg, section: section, summary: summary)
     }
     
+    convenience init(d:Dictionary<String,String>){
+        
+        let start = d["link"]?.startIndex.advancedBy(26)
+        let end = start?.advancedBy(4)
+        let range = Range<String.Index>(start!..<end!)
+        
+        let UID = 0
+        let headline = d["title"]
+        let byline = d["dc:creator"]
+        let date = d["pubDate"]
+        let bodyText = d["content:encoded"]
+        let featuredImg : UIImage? = nil
+        let section = d["category"]
+        let summary = d["description"]
+        
+        self.init(UID:UID,headline: headline!,byline: byline!,date: date!, bodyText: bodyText!, featuredImg: featuredImg, section: section!, summary: summary!)
+    }
+    
     // MARK: NSCoding
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -76,7 +94,16 @@ class Article: NSObject, NSCoding {
         return "Article Named: \(self.headline) \n"
     }
     
-    
+    func toDict() -> Dictionary<String,String> {
+        var tmp = Dictionary<String,String>()
+        tmp["category"] = self.section
+        tmp["title"] = self.headline
+        tmp["dc:creator"] = self.byline
+        tmp["pubDate"] = self.date
+        tmp["content:encoded"] = self.bodyText
+        
+        return tmp
+    }
     
     
 }

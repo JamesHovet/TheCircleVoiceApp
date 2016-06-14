@@ -43,18 +43,19 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
             SectionText = "News"
         } else if SectionText == "\n\t\tSports" {
             SectionText = "Sports"
-        } else {
-            SectionText = (SectionText! as NSString).substringFromIndex(5)
         }
+        
+        //else {SectionText = (SectionText! as NSString).substringFromIndex(5)}
+        
         SectionTitle.text = SectionText
         //SectionTitle.text = "Sports"
         Headline.text = message["title"]
         Byline.text = (message["dc:creator"]! as NSString).substringFromIndex(3)
-        //PublishDate.text = message["pubDate"]
+        PublishDate.text = message["pubDate"]
         
-        let dateArr = message["pubDate"]!.characters.split{$0 == " "}.map(String.init)
+        //let dateArr = message["pubDate"]!.characters.split{$0 == " "}.map(String.init)
         
-        PublishDate.text = dateArr[0] + " " + dateArr[1] + " " + dateArr[2] + " " + dateArr[3]
+        //PublishDate.text = dateArr[0] + " " + dateArr[1] + " " + dateArr[2] + " " + dateArr[3]
         
         
         let attrStr = try! NSMutableAttributedString(

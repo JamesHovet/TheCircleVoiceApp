@@ -11,7 +11,8 @@ import UIKit
 
 class ArticleTableViewCell : UITableViewCell {
     
-    var ArticleData : Dictionary<String,String>!
+    
+    var ArticleObject : Article!
     
     @IBOutlet weak var ArticleTitle: UILabel!
     
