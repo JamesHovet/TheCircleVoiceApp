@@ -22,6 +22,7 @@
 		591118EA1CA0BDFB00F91103 /* ArticleEnterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */; };
 		591118EC1CA0C71400F91103 /* ArticleEnterUnwind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */; };
 		591118F21CA0EA5000F91103 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118F11CA0EA5000F91103 /* AboutUsViewController.swift */; };
+		5993D1831D0FAEF800502D7E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993D1821D0FAEF800502D7E /* Article.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnterSegue.swift; sourceTree = "<group>"; };
 		591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnterUnwind.swift; sourceTree = "<group>"; };
 		591118F11CA0EA5000F91103 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = ../AboutUsViewController.swift; sourceTree = "<group>"; };
+		5993D1821D0FAEF800502D7E /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				591118B21CA0B67500F91103 /* LaunchScreen.storyboard */,
 				591118E11CA0BC6400F91103 /* ArticleTableViewCell.swift */,
 				591118B51CA0B67500F91103 /* Info.plist */,
+				5993D1821D0FAEF800502D7E /* Article.swift */,
 			);
 			path = TheCircleVoice;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				591118F21CA0EA5000F91103 /* AboutUsViewController.swift in Sources */,
 				591118EA1CA0BDFB00F91103 /* ArticleEnterSegue.swift in Sources */,
+				5993D1831D0FAEF800502D7E /* Article.swift in Sources */,
 				591118E21CA0BC6400F91103 /* ArticleTableViewCell.swift in Sources */,
 				591118AC1CA0B67500F91103 /* ViewController.swift in Sources */,
 				591118E01CA0BC2400F91103 /* ArticleViewController.swift in Sources */,
