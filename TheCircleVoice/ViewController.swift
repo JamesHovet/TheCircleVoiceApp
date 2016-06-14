@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var topView: UIView!
     
+    var articles : [Article] = []
+    
     // Load and Save Articles
     
     func saveArticles() {
@@ -35,10 +37,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Article.ArchiveURL.path!) as? [Article]
     }
     
+    func clearArticles() {
+        articles = []
+        saveArticles()
+    }
     
     // MARK: Article Code
     
-    var articles : [Article] = []
+    
     
     func loadDebugArticle(){
         articles.append(Article(UID: 0, headline: "This is a Test Article", byline: "By: James Hovet '18", date: "A random Date", bodyText: "LOREM IPSUM DOLOR SIT body copy", featuredImg: nil, section: "News", summary: "Lorem ipsum dolor sit summary"))
@@ -56,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //assign rows in section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if data[currentSection] != nil{
-            return (data[currentSection]?.count)!
+            return articles.count
         } else {
             return 10
         }
@@ -71,8 +77,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCellWithIdentifier("Article") as! ArticleTableViewCell
         
-        let currentDict = data[currentSection]![indexPath.row] as Dictionary<String,String>
-        let currentArticle = Article(d: currentDict)
+        //let currentDict = data[currentSection]![indexPath.row] as Dictionary<String,String>
+        let currentArticle = articles[indexPath.row]
         
         cell.ArticleObject = currentArticle
 
@@ -89,6 +95,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //worry about getting the data from the parser
     func parsingWasFinished() {
+        
+        
+        
+        //print(Article(d:data["News"]![0]))
+        
         self.TableView.reloadData()
     }
     
@@ -121,20 +132,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         data[section] = xmlParser.arrParsedData
         print("wrote data to section " + section)
+        
+        for i in data[currentSection]!{
+            articles.append(Article(d:i))
+        }
+        print("ALL ARTICLES:")
+        for i in articles{
+            print(i)
+        }
+        
+        saveArticles()
+        
     }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //clearArticles()
+        
         var tmp = loadArticles()
         
         if tmp != nil {
             articles = tmp!
         }
         
-        loadDebugArticle()
-        loadDebugArticle()
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -148,9 +171,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         dispatch_async(backgroundQueue, {
             //print("This is run on the background queue")
             
-            for i in self.sections{
-                self.parse(i)
-            }
+            //for i in self.sections{
+            //    self.parse(i)
+            //}
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 //print("This is run on the main queue, after the previous code in outer block")

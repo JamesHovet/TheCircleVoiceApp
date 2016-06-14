@@ -66,7 +66,11 @@ class Article: NSObject, NSCoding {
         var myNSString = URL! as NSString
         myNSString = myNSString.substringWithRange(NSRange(location: 26, length: 4))
         
-        let UID = Int(myNSString as String)
+        var UID = Int(myNSString as String)
+        
+        if UID == nil{
+            UID = 0
+        }
         
         
         let headline = d["title"]
