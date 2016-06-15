@@ -14,31 +14,64 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var SectionColorImage: UIImageView!
     
-    var sections = ["News","Opinions","Features","Sports","Arts"]
+    var sections = ["Home","News","Opinions","Features","Sports","Arts"]
     
     var currentSection = "Home"
     
     var data = Dictionary<String,[Dictionary<String,String>]>()
     
+    var loadedUIDs : [Int] = []
+    
     @IBOutlet weak var topView: UIView!
     
-    var articles : [Article] = []
+    var articles: [String:[Article]] = ["Home":[],"News":[],"Opinions":[],"Features":[],"Sports":[],"Arts":[]]
     
     // Load and Save Articles
     
     func saveArticles() {
+        
+//        print(articles)
+        
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(articles, toFile: Article.ArchiveURL.path!)
         if !isSuccessfulSave {
             print("Failed to save articles...")
+        } else {
+//            print("SAVED:")
+//            print(NSKeyedUnarchiver.unarchiveObjectWithFile(Article.ArchiveURL.path!) as? Dictionary<String,[Article]>)
         }
     }
     
-    func loadArticles() -> [Article]? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Article.ArchiveURL.path!) as? [Article]
+    func saveArticles(d:Dictionary<String,[Article]>){
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(d, toFile: Article.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save articles...")
+        } else {
+//            print("SAVED:")
+//            print(NSKeyedUnarchiver.unarchiveObjectWithFile(Article.ArchiveURL.path!) as? Dictionary<String,[Article]>)
+        }
+
+    }
+    
+    func loadArticles() -> Dictionary<String,[Article]>? {
+//        print("LOADED")
+        
+        let x = NSKeyedUnarchiver.unarchiveObjectWithFile(Article.ArchiveURL.path!) as? Dictionary<String,[Article]>
+        
+        if x == nil {
+//            print("loaded Nil")
+//            print(Article.ArchiveURL.path!)
+        } else {
+//            print("loaded NOT Nil")
+        }
+        
+        return x
+        
     }
     
     func clearArticles() {
-        articles = []
+        for i in sections{
+            articles[i] = []
+        }
         saveArticles()
     }
     
@@ -47,7 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func loadDebugArticle(){
-        articles.append(Article(UID: 0, headline: "This is a Test Article", byline: "By: James Hovet '18", date: "A random Date", bodyText: "LOREM IPSUM DOLOR SIT body copy", featuredImg: nil, section: "News", summary: "Lorem ipsum dolor sit summary"))
+        articles["Arts"]!.append(Article(UID: 0, headline: "This is a Test Article", byline: "By: James Hovet '18", date: "A random Date", bodyText: "LOREM IPSUM DOLOR SIT body copy", featuredImg: nil, section: "News", summary: "Lorem ipsum dolor sit summary"))
     }
     
     
@@ -61,8 +94,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //assign rows in section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if data[currentSection] != nil{
-            return articles.count
+        if articles[currentSection] != nil{
+            return articles[currentSection]!.count
         } else {
             return 10
         }
@@ -75,10 +108,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //put data into the cells
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCellWithIdentifier("Article") as! ArticleTableViewCell
         
         //let currentDict = data[currentSection]![indexPath.row] as Dictionary<String,String>
-        let currentArticle = articles[indexPath.row]
+        let currentArticle = articles[currentSection]![indexPath.row]
+        let cell =  tableView.dequeueReusableCellWithIdentifier("Article") as! ArticleTableViewCell
+
         
         cell.ArticleObject = currentArticle
 
@@ -96,8 +130,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //worry about getting the data from the parser
     func parsingWasFinished() {
         
-        
-        
         //print(Article(d:data["News"]![0]))
         
         self.TableView.reloadData()
@@ -105,64 +137,83 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var TableView: UITableView!
     
+    /* 
+     adds the article to the list of articles if it is not already in the list
+     returns true if the article was added
+     returns false if the article was not added
+    */
     
-    
-    func parse(section:String){
-        xmlParser = RssFetcher()
-        xmlParser.delegate = self
-        xmlParser.arrParsedData = []
-        
-        var numberOfPages = 5
-        
-        if section == "Home"{
-            URLHeader = "http://thecirclevoice.org/feed/?paged="
-            numberOfPages = 5
+    func conditionalAppend(a:Article) -> Article? {
+        if (loadedUIDs.contains(a.UID)){
+//            print("Did not add")
+            return nil
         } else {
-            URLHeader = "http://thecirclevoice.org/category/" + section + "/feed/?paged="
-            numberOfPages = 2
+//            articles["Home"]!.append(a)
+//            print("did add")
+            return a
         }
         
-        for i in 1...numberOfPages{
-            //URL of the CV rss feed
-            
-            let URL = NSURL(string: URLHeader+i.description)
-            print(URL.debugDescription)
-            xmlParser.startParsingWithContentsOfURL(URL!)
-            print("length of arrParsedData is " + String(xmlParser.arrParsedData.count))
-        }
-        data[section] = xmlParser.arrParsedData
-        print("wrote data to section " + section)
-        
-        for i in data[currentSection]!{
-            articles.append(Article(d:i))
-        }
-        print("ALL ARTICLES:")
-        for i in articles{
-            print(i)
-        }
-        
-        saveArticles()
+//        articles["Home"]!.append(a)
+//        return true
         
     }
     
     
+    func parseReturn(n:Int,startingDict:Dictionary<String,[Article]>) -> Dictionary<String,[Article]>{
+        
+        xmlParser = RssFetcher()
+        xmlParser.delegate = self
+        xmlParser.arrParsedData = []
+        
+        var copy = startingDict
+        
+        let URL = NSURL(string: URLHeader+n.description)
+        print(URL.debugDescription)
+        xmlParser.startParsingWithContentsOfURL(URL!)
+//        print("length of arrParsedData is " + String(xmlParser.arrParsedData.count))
+        
+        for i in xmlParser.arrParsedData{
+//            conditionalAppend(Article(d:i))
+            let tmp = Article(d: i)
+            
+            let toAdd = conditionalAppend(tmp)
+            if toAdd != nil{
+                copy["Home"]!.append(toAdd!)
+            }
+            loadedUIDs.append(tmp.UID)
+//            print(loadedUIDs)
+            
+        }
+        
+//        print("ALL ARTICLES:")
+//        for i in articles{
+//            print(i)
+//        }
+        
+//        saveArticles(copy)
+        
+        return copy
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //clearArticles()
         
-        var tmp = loadArticles()
-        
-        if tmp != nil {
-            articles = tmp!
-        }
+        loadDebugArticle()
+        loadDebugArticle()
+        saveArticles()
         
         
+        saveArticles(parseReturn(1, startingDict: articles))
+        
+        
+        articles = loadArticles()!
         
         // Do any additional setup after loading the view, typically from a nib.
         //print("did load")
-        parse("Home")
+       
         
         //BACKGROUND FETCHING
         
@@ -171,9 +222,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         dispatch_async(backgroundQueue, {
             //print("This is run on the background queue")
             
-            //for i in self.sections{
-            //    self.parse(i)
-            //}
+            
+            for n in 1..<10{
+                self.saveArticles(self.parseReturn(n, startingDict: self.articles))
+                self.articles = self.loadArticles()!
+            }
+            self.TableView.reloadData()
+//            print("reloaded data !!!")
+            
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 //print("This is run on the main queue, after the previous code in outer block")
@@ -223,8 +279,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func slideOut(){
-        print("topView frame is:")
-        print(topView.frame)
+        
+        
+//        print("topView frame is:")
+//        print(topView.frame)
         var HamburgerWidth = SectionColorImage.frame.width
         HamburgerWidth -= 10
         let optionsOut = UIViewAnimationOptions.CurveEaseOut
@@ -238,13 +296,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         TableView.allowsSelection = false
         TableView.scrollEnabled = false
         HamburgerReturnHelperView.alpha = 0.1
-        print("topView frame is:")
-        print(topView.frame)
+//        print("topView frame is:")
+//        print(topView.frame)
     }
     
     func slideIn(){
-        print("topView frame is:")
-        print(topView.frame)
+        
+        
+//        print("topView frame is:")
+//        print(topView.frame)
         let optionsIn = UIViewAnimationOptions.CurveEaseIn
         
         UIView.animateWithDuration(0.2, delay: 0.0, options: optionsIn, animations: {
@@ -256,14 +316,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         TableView.allowsSelection = true
         TableView.scrollEnabled = true
         HamburgerReturnHelperView.alpha = 0.0
-        print("topView frame is:")
-        print(topView.frame)
+//        print("topView frame is:")
+//        print(topView.frame)
     }
     
     @IBAction func HamburgerActivated(sender: AnyObject?) {
         
-        print("hamburger activated")
-        print(sender.debugDescription)
+//        print("hamburger activated")
+//        print(sender.debugDescription)
         
         if sender is UISwipeGestureRecognizer{
             

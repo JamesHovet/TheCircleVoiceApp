@@ -56,21 +56,48 @@ class Article: NSObject, NSCoding {
         let section = aDecoder.decodeObjectForKey(PropertyKey.sectionKey) as! String
         let summary = aDecoder.decodeObjectForKey(PropertyKey.summaryKey) as! String
         
+//        print("initizlized Article from aCoder")
+        
         self.init(UID:UID,headline: headline,byline: byline,date: date, bodyText: bodyText, featuredImg: featuredImg, section: section, summary: summary)
     }
     
     convenience init(d:Dictionary<String,String>){
         
-        let URL = d["link"]
+        let URL = d["link"]!
+//        print(URL)
         
-        var myNSString = URL! as NSString
-        myNSString = myNSString.substringWithRange(NSRange(location: 26, length: 4))
+//        var URL = "http://thecirclevoice.org/1254/features/a-history-of-senior-shenanigans/"
+        
+        var len = 4
+        
+        var myNSString = URL as NSString
+        myNSString = myNSString.substringWithRange(NSRange(location: 29, length: len))
+//        print("NSSTRING:")
+//        print(myNSString)
+        
+        var didWork = false
         
         var UID = Int(myNSString as String)
         
-        if UID == nil{
-            UID = 0
+        while didWork == false{
+        
+            UID = Int(myNSString as String)
+            if UID != nil{
+                didWork = true
+            } else if(len < 1){
+                didWork = true
+                UID = -1
+            } else {
+                len -= 1
+                myNSString = myNSString.substringWithRange(NSRange(location: 0, length: len))
+            }
+        
         }
+        
+//        print("UID:")
+//        print(UID)
+        
+        
         
         
         let headline = d["title"]
@@ -80,6 +107,8 @@ class Article: NSObject, NSCoding {
         let featuredImg : UIImage? = nil
         let section = d["category"]
         let summary = d["description"]
+        
+//        print("Inititalized Article from Dict")
         
         self.init(UID:UID!,headline: headline!,byline: byline!,date: date!, bodyText: bodyText!, featuredImg: featuredImg, section: section!, summary: summary!)
     }
@@ -95,10 +124,13 @@ class Article: NSObject, NSCoding {
         aCoder.encodeObject(featuredImg, forKey: PropertyKey.featuredImgKey)
         aCoder.encodeObject(section, forKey: PropertyKey.sectionKey)
         aCoder.encodeObject(summary, forKey: PropertyKey.summaryKey)
+        
+//        print("EncodedWithCoder")
+        
     }
     
     override var description : String {
-        return "Article Named: \(self.headline) \n"
+        return "\(self.UID):Article Named: \(self.headline) \n"
     }
     
     func toDict() -> Dictionary<String,String> {

@@ -11,7 +11,7 @@ import UIKit
 class ArticleEnterSeque: UIStoryboardSegue {
     
     override func perform() {
-        print("Custom Segue Code Excecuted")
+//        print("Custom Segue Code Excecuted")
         self.sourceViewController.presentViewController(self.destinationViewController as UIViewController,
             animated: true,
             completion: nil)
