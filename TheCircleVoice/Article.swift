@@ -105,7 +105,21 @@ class Article: NSObject, NSCoding {
         let date = d["pubDate"]
         let bodyText = d["content:encoded"]
         let featuredImg : UIImage? = nil
-        let section = d["category"]
+        
+        let options = [
+            "\n\t\t\t\tArts" : "Arts",
+            "\n\t\t\t\tFeatures" : "Features",
+            "\n\t\t\t\tNews" : "News",
+            "\n\t\t\t\tOpinions" : "Opinions",
+            "\n\t\t\t\tSports" : "Sports",
+            "\n\t\tShowcase" : "Showcase"
+        ]
+        
+        let section = options[d["category"]!]
+//        print(section)
+        
+        
+        
         let summary = d["description"]
         
 //        print("Inititalized Article from Dict")

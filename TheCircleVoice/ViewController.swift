@@ -179,6 +179,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let toAdd = conditionalAppend(tmp)
             if toAdd != nil{
                 copy["Home"]!.append(toAdd!)
+                if toAdd?.section != "Showcase" {
+                    copy[(toAdd?.section)!]!.append(toAdd!)
+                }
             }
             loadedUIDs.append(tmp.UID)
 //            print(loadedUIDs)
@@ -208,8 +211,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         saveArticles(parseReturn(1, startingDict: articles))
         
-        
         articles = loadArticles()!
+        
         
         // Do any additional setup after loading the view, typically from a nib.
         //print("did load")

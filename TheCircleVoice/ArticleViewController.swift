@@ -33,22 +33,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         self.performSegueWithIdentifier("FromArticleUnwind", sender: self)
     }
     override func viewWillAppear(animated: Bool) {
-        var SectionText = message["category"]
-        print(SectionText)
-        if SectionText == "\n\t\tShowcase" {
-            SectionText = "Showcase"
-        } else if SectionText == "\n\t\t\t\tOpinions" {
-            SectionText = "Opinions"
-        } else if SectionText == "\n\t\t\t\tNews" {
-            SectionText = "News"
-        } else if SectionText == "\n\t\tSports" {
-            SectionText = "Sports"
-        }
         
-        //else {SectionText = (SectionText! as NSString).substringFromIndex(5)}
-        
-        SectionTitle.text = SectionText
-        //SectionTitle.text = "Sports"
+        SectionTitle.text = message["category"]
         Headline.text = message["title"]
         Byline.text = (message["dc:creator"]! as NSString).substringFromIndex(3)
         PublishDate.text = message["pubDate"]
