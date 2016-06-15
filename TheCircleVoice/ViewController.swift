@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var data = Dictionary<String,[Dictionary<String,String>]>()
     
-    var loadedUIDs : [Int] = []
+    var loadedUIDs : [Int] = [0]
     
     @IBOutlet weak var topView: UIView!
     
@@ -201,10 +201,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         //clearArticles()
         
-        loadDebugArticle()
-        loadDebugArticle()
-        saveArticles()
-        
+//        loadDebugArticle()
+//        loadDebugArticle()
+//        saveArticles()
+//        
         
         saveArticles(parseReturn(1, startingDict: articles))
         
@@ -223,7 +223,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             //print("This is run on the background queue")
             
             
-            for n in 1..<10{
+            for n in 2..<11{
                 self.saveArticles(self.parseReturn(n, startingDict: self.articles))
                 self.articles = self.loadArticles()!
             }
@@ -280,6 +280,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func slideOut(){
         
+        //DELETE ME:
+
+        //END DELETE ME:
         
 //        print("topView frame is:")
 //        print(topView.frame)
@@ -301,7 +304,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func slideIn(){
-        
+
         
 //        print("topView frame is:")
 //        print(topView.frame)
