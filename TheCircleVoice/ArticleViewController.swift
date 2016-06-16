@@ -28,6 +28,17 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var PublishDate: UILabel!
     
     @IBOutlet weak var Article: UITextView!
+
+    func displayShareSheet(shareContent:NSURL) {
+        let activityViewController = UIActivityViewController(activityItems: [shareContent], applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
+    }
+    
+    @IBAction func shareButtonPressed(sender: UITapGestureRecognizer){
+        
+        displayShareSheet(NSURL(string: message["link"]!)!)
+        
+    }
     
     @IBAction func returnFromArticleAction(sender: AnyObject) {
         self.performSegueWithIdentifier("FromArticleUnwind", sender: self)

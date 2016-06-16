@@ -197,6 +197,9 @@
                                                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="23"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="23" y="8" width="194" height="26.5"/>
+                                                                    </variation>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="This is a test label that should flow onto more than one line" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wk-cc-Wuh">
                                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -212,7 +215,7 @@
                                                                         </mask>
                                                                     </variation>
                                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                                        <rect key="frame" x="23" y="34.5" width="354" height="35"/>
+                                                                        <rect key="frame" x="23" y="34.5" width="194" height="52.5"/>
                                                                         <mask key="constraints">
                                                                             <exclude reference="6D1-25-noN"/>
                                                                         </mask>
@@ -225,7 +228,7 @@
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                                        <rect key="frame" x="23" y="66" width="354" height="100"/>
+                                                                        <rect key="frame" x="23" y="83.5" width="194" height="82.5"/>
                                                                     </variation>
                                                                 </label>
                                                             </subviews>
@@ -450,7 +453,9 @@
                                         <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="tI5-c4-uQo" firstAttribute="top" secondItem="wUY-gz-GmI" secondAttribute="top" constant="20" id="UPp-fh-C4x"/>
-                                    <constraint firstItem="3vy-Ww-Iv1" firstAttribute="top" secondItem="wUY-gz-GmI" secondAttribute="top" id="VyD-JA-bZ8"/>
+                                    <constraint firstItem="3vy-Ww-Iv1" firstAttribute="top" secondItem="wUY-gz-GmI" secondAttribute="top" id="VyD-JA-bZ8">
+                                        <variation key="widthClass=compact" constant="-20"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="EJe-YM-g2r" secondAttribute="trailing" id="YVw-jW-o08"/>
                                     <constraint firstItem="VBI-8N-l2w" firstAttribute="leading" secondItem="3vy-Ww-Iv1" secondAttribute="leading" id="ZCd-q7-wWq"/>
                                     <constraint firstItem="3A5-YF-tfK" firstAttribute="top" secondItem="wUY-gz-GmI" secondAttribute="top" constant="20" id="a8G-T6-VBc"/>
@@ -953,6 +958,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <gestureRecognizers/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sc-J0-NPx" userLabel="BlackStatusBar">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMh-1j-8ys" userLabel="ArticleScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
@@ -1119,11 +1131,38 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                             <rect key="frame" x="10" y="-5" width="380" height="65"/>
                                         </variation>
                                     </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="CV_ShareButtonSquare" translatesAutoresizingMaskIntoConstraints="NO" id="3e3-Nf-29b">
+                                        <rect key="frame" x="0.0" y="-52" width="52" height="52"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uF-7E-Iw6" userLabel="ShareButtonHelperView">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="81" id="Ate-Zq-huu"/>
+                                            <constraint firstAttribute="height" constant="85" id="igH-V5-6J6"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Ate-Zq-huu"/>
+                                                <exclude reference="igH-V5-6J6"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="Ate-Zq-huu"/>
+                                                <include reference="igH-V5-6J6"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Dd5-t7-49H" appends="YES" id="xXe-zd-a5z"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="CAF-it-7M4" firstAttribute="leading" secondItem="xtC-cd-omJ" secondAttribute="leading" id="3Bj-qf-CD9"/>
                                     <constraint firstItem="HEQ-uW-FQA" firstAttribute="top" secondItem="CAF-it-7M4" secondAttribute="bottom" constant="9" id="52Y-v5-rAB"/>
+                                    <constraint firstItem="6uF-7E-Iw6" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" constant="-20" id="CUd-xv-KGk"/>
                                     <constraint firstItem="9MB-bS-flD" firstAttribute="trailing" secondItem="6jT-8E-fb3" secondAttribute="trailing" priority="899" id="DHl-Se-Uq8"/>
                                     <constraint firstAttribute="bottom" secondItem="Y57-eR-G51" secondAttribute="bottom" id="Et3-96-f7y"/>
                                     <constraint firstItem="xtC-cd-omJ" firstAttribute="trailing" secondItem="9MB-bS-flD" secondAttribute="trailing" id="GJd-pX-9KV"/>
@@ -1131,13 +1170,18 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                     <constraint firstItem="9MB-bS-flD" firstAttribute="leading" secondItem="6jT-8E-fb3" secondAttribute="leading" id="MY0-jz-3vm"/>
                                     <constraint firstAttribute="trailing" secondItem="6jT-8E-fb3" secondAttribute="trailing" constant="53" id="NKs-SX-Ulc"/>
                                     <constraint firstItem="Tcq-q1-RZV" firstAttribute="leading" secondItem="dMh-1j-8ys" secondAttribute="leading" id="Nep-Hr-eQc"/>
+                                    <constraint firstItem="3e3-Nf-29b" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" constant="5" id="OcM-sX-CBS"/>
+                                    <constraint firstItem="6uF-7E-Iw6" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" constant="-20" id="Pe9-4s-98d"/>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="width" secondItem="dMh-1j-8ys" secondAttribute="width" id="ZJk-Ht-le7"/>
                                     <constraint firstItem="6jT-8E-fb3" firstAttribute="leading" secondItem="dMh-1j-8ys" secondAttribute="leading" constant="10" id="ahV-sJ-hDP"/>
                                     <constraint firstItem="6jT-8E-fb3" firstAttribute="trailing" secondItem="9MB-bS-flD" secondAttribute="trailing" id="cJn-uw-wry"/>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="leading" secondItem="6jT-8E-fb3" secondAttribute="trailing" constant="-347" id="ccf-Jz-aJB"/>
+                                    <constraint firstAttribute="trailing" secondItem="3e3-Nf-29b" secondAttribute="trailing" constant="8" id="cjl-Fs-iPF"/>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="top" secondItem="6jT-8E-fb3" secondAttribute="bottom" constant="-64" id="eQ7-fh-DsQ"/>
                                     <constraint firstItem="CAF-it-7M4" firstAttribute="top" secondItem="xtC-cd-omJ" secondAttribute="bottom" constant="3" id="emE-6P-wkT"/>
+                                    <constraint firstItem="3e3-Nf-29b" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" id="fbl-WI-MRd"/>
                                     <constraint firstAttribute="trailing" secondItem="Tcq-q1-RZV" secondAttribute="trailing" id="iuN-H6-Bbd"/>
+                                    <constraint firstAttribute="trailing" secondItem="6uF-7E-Iw6" secondAttribute="trailing" id="jX0-uq-jnX"/>
                                     <constraint firstItem="xtC-cd-omJ" firstAttribute="top" secondItem="9MB-bS-flD" secondAttribute="bottom" id="kmR-ye-ZpB"/>
                                     <constraint firstItem="9MB-bS-flD" firstAttribute="leading" secondItem="6jT-8E-fb3" secondAttribute="leading" id="l0U-SJ-qYK"/>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" id="lXN-4G-vS5"/>
@@ -1146,6 +1190,9 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="centerY" secondItem="dMh-1j-8ys" secondAttribute="centerY" id="quV-1Y-gew"/>
                                     <constraint firstItem="Tcq-q1-RZV" firstAttribute="top" secondItem="dMh-1j-8ys" secondAttribute="top" constant="20" id="tAO-hs-4f5"/>
                                     <constraint firstAttribute="trailing" secondItem="Y57-eR-G51" secondAttribute="trailing" id="u1G-9G-9v1"/>
+                                    <constraint firstItem="3e3-Nf-29b" firstAttribute="bottom" secondItem="6jT-8E-fb3" secondAttribute="bottom" id="uFK-WD-ZK8">
+                                        <variation key="widthClass=compact" constant="-134"/>
+                                    </constraint>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="leading" secondItem="dMh-1j-8ys" secondAttribute="leading" id="w0G-aY-IXn"/>
                                     <constraint firstItem="HEQ-uW-FQA" firstAttribute="width" secondItem="6jT-8E-fb3" secondAttribute="width" id="xiW-aL-Toh"/>
                                     <constraint firstItem="Y57-eR-G51" firstAttribute="leading" secondItem="6jT-8E-fb3" secondAttribute="trailing" constant="-347" id="ylU-7E-5m9"/>
@@ -1160,8 +1207,14 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <exclude reference="CAF-it-7M4"/>
                                         <exclude reference="Tcq-q1-RZV"/>
                                         <exclude reference="wfm-9z-r4U"/>
+                                        <exclude reference="3e3-Nf-29b"/>
+                                        <exclude reference="6uF-7E-Iw6"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="OcM-sX-CBS"/>
+                                        <exclude reference="cjl-Fs-iPF"/>
+                                        <exclude reference="fbl-WI-MRd"/>
+                                        <exclude reference="uFK-WD-ZK8"/>
                                         <exclude reference="NKs-SX-Ulc"/>
                                         <exclude reference="ahV-sJ-hDP"/>
                                         <exclude reference="cJn-uw-wry"/>
@@ -1173,6 +1226,9 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <exclude reference="GJd-pX-9KV"/>
                                         <exclude reference="IdC-sg-LSG"/>
                                         <exclude reference="kmR-ye-ZpB"/>
+                                        <exclude reference="CUd-xv-KGk"/>
+                                        <exclude reference="Pe9-4s-98d"/>
+                                        <exclude reference="jX0-uq-jnX"/>
                                         <exclude reference="3Bj-qf-CD9"/>
                                         <exclude reference="emE-6P-wkT"/>
                                         <exclude reference="52Y-v5-rAB"/>
@@ -1201,8 +1257,14 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <include reference="CAF-it-7M4"/>
                                         <include reference="Tcq-q1-RZV"/>
                                         <include reference="wfm-9z-r4U"/>
+                                        <include reference="3e3-Nf-29b"/>
+                                        <include reference="6uF-7E-Iw6"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="OcM-sX-CBS"/>
+                                        <include reference="cjl-Fs-iPF"/>
+                                        <exclude reference="fbl-WI-MRd"/>
+                                        <exclude reference="uFK-WD-ZK8"/>
                                         <include reference="NKs-SX-Ulc"/>
                                         <include reference="ahV-sJ-hDP"/>
                                         <include reference="cJn-uw-wry"/>
@@ -1214,6 +1276,9 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <include reference="GJd-pX-9KV"/>
                                         <include reference="IdC-sg-LSG"/>
                                         <include reference="kmR-ye-ZpB"/>
+                                        <exclude reference="CUd-xv-KGk"/>
+                                        <include reference="Pe9-4s-98d"/>
+                                        <include reference="jX0-uq-jnX"/>
                                         <include reference="3Bj-qf-CD9"/>
                                         <include reference="emE-6P-wkT"/>
                                         <include reference="52Y-v5-rAB"/>
@@ -1237,13 +1302,6 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                     <outlet property="delegate" destination="WgJ-rd-IfI" id="sZA-xn-RsU"/>
                                 </connections>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sc-J0-NPx" userLabel="BlackStatusBar">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLG-tD-bm7" userLabel="HeaderHelperView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1289,16 +1347,18 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                             </constraint>
                             <constraint firstItem="6sc-J0-NPx" firstAttribute="bottom" secondItem="FDp-SW-9ii" secondAttribute="bottom" id="C2J-uC-8Mg"/>
                             <constraint firstItem="dMh-1j-8ys" firstAttribute="leading" secondItem="Tuz-Fe-Idh" secondAttribute="leading" id="D6j-j4-NqL"/>
-                            <constraint firstItem="IHk-f1-gQ7" firstAttribute="trailing" secondItem="pLG-tD-bm7" secondAttribute="trailing" id="I4U-nA-6m5"/>
+                            <constraint firstItem="IHk-f1-gQ7" firstAttribute="trailing" secondItem="pLG-tD-bm7" secondAttribute="trailing" constant="80" id="I4U-nA-6m5"/>
                             <constraint firstAttribute="trailing" secondItem="dMh-1j-8ys" secondAttribute="trailing" id="JKF-hr-YT8"/>
                             <constraint firstItem="IHk-f1-gQ7" firstAttribute="leading" secondItem="6sc-J0-NPx" secondAttribute="leading" id="Rvj-HH-WaH"/>
                             <constraint firstItem="6sc-J0-NPx" firstAttribute="leading" secondItem="dMh-1j-8ys" secondAttribute="leading" id="UxY-iy-vB7"/>
                             <constraint firstItem="dMh-1j-8ys" firstAttribute="top" secondItem="OU5-uN-TPg" secondAttribute="bottom" id="VnH-Ie-Tlb"/>
+                            <constraint firstItem="3e3-Nf-29b" firstAttribute="top" secondItem="FDp-SW-9ii" secondAttribute="bottom" constant="5" id="ckR-TN-ln4"/>
                             <constraint firstItem="IHk-f1-gQ7" firstAttribute="top" secondItem="6sc-J0-NPx" secondAttribute="top" id="ctp-tB-9px"/>
                             <constraint firstItem="IHk-f1-gQ7" firstAttribute="leading" secondItem="pLG-tD-bm7" secondAttribute="leading" id="cyj-xz-52C"/>
                             <constraint firstItem="OU5-uN-TPg" firstAttribute="top" secondItem="Tuz-Fe-Idh" secondAttribute="topMargin" id="dg7-TB-eUE"/>
                             <constraint firstItem="6sc-J0-NPx" firstAttribute="trailing" secondItem="dMh-1j-8ys" secondAttribute="trailing" id="dmn-eh-vCr"/>
                             <constraint firstItem="6sc-J0-NPx" firstAttribute="top" secondItem="Tuz-Fe-Idh" secondAttribute="top" id="oQ5-Qx-VGt"/>
+                            <constraint firstItem="6uF-7E-Iw6" firstAttribute="height" secondItem="pLG-tD-bm7" secondAttribute="height" id="uKJ-ld-SYi"/>
                             <constraint firstItem="dMh-1j-8ys" firstAttribute="top" secondItem="FDp-SW-9ii" secondAttribute="bottom" id="yJf-gI-nHs"/>
                             <constraint firstItem="OU5-uN-TPg" firstAttribute="leading" secondItem="Tuz-Fe-Idh" secondAttribute="leadingMargin" id="ySS-HO-s14"/>
                             <constraint firstItem="dMh-1j-8ys" firstAttribute="bottom" secondItem="ncY-yM-lTJ" secondAttribute="top" id="yaf-Z3-qhu"/>
@@ -1306,13 +1366,14 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="IHk-f1-gQ7"/>
-                                <exclude reference="dMh-1j-8ys"/>
                                 <exclude reference="6sc-J0-NPx"/>
+                                <exclude reference="dMh-1j-8ys"/>
                                 <exclude reference="pLG-tD-bm7"/>
                                 <exclude reference="tTz-ay-Qam"/>
                                 <exclude reference="OU5-uN-TPg"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ckR-TN-ln4"/>
                                 <exclude reference="BF8-z7-XrK"/>
                                 <exclude reference="C2J-uC-8Mg"/>
                                 <exclude reference="UxY-iy-vB7"/>
@@ -1322,6 +1383,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                 <exclude reference="1ge-Zz-iEm"/>
                                 <exclude reference="dg7-TB-eUE"/>
                                 <exclude reference="ySS-HO-s14"/>
+                                <exclude reference="uKJ-ld-SYi"/>
                                 <exclude reference="07K-XO-IPY"/>
                                 <exclude reference="6XZ-XZ-cDC"/>
                                 <exclude reference="I4U-nA-6m5"/>
@@ -1338,13 +1400,14 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="IHk-f1-gQ7"/>
-                                <include reference="dMh-1j-8ys"/>
                                 <include reference="6sc-J0-NPx"/>
+                                <include reference="dMh-1j-8ys"/>
                                 <include reference="pLG-tD-bm7"/>
                                 <exclude reference="tTz-ay-Qam"/>
                                 <exclude reference="OU5-uN-TPg"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ckR-TN-ln4"/>
                                 <include reference="BF8-z7-XrK"/>
                                 <include reference="C2J-uC-8Mg"/>
                                 <include reference="UxY-iy-vB7"/>
@@ -1354,6 +1417,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                 <include reference="1ge-Zz-iEm"/>
                                 <exclude reference="dg7-TB-eUE"/>
                                 <include reference="ySS-HO-s14"/>
+                                <exclude reference="uKJ-ld-SYi"/>
                                 <include reference="07K-XO-IPY"/>
                                 <include reference="6XZ-XZ-cDC"/>
                                 <include reference="I4U-nA-6m5"/>
@@ -1397,12 +1461,18 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                         <action selector="returnFromArticleAction:" destination="WgJ-rd-IfI" id="8SM-7W-xyB"/>
                     </connections>
                 </screenEdgePanGestureRecognizer>
+                <tapGestureRecognizer id="Dd5-t7-49H">
+                    <connections>
+                        <action selector="shareButtonPressed:" destination="WgJ-rd-IfI" id="WTL-aE-opD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2941.5" y="396"/>
         </scene>
     </scenes>
     <resources>
         <image name="ArticleSectionSlice" width="1" height="104"/>
+        <image name="CV_ShareButtonSquare" width="52" height="52"/>
         <image name="ColorBar" width="2" height="42"/>
         <image name="GreyColor@Universal" width="1" height="1"/>
         <image name="Hamburger" width="43" height="43"/>
