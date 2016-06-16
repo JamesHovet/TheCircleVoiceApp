@@ -112,7 +112,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let currentArticle = articles[currentSection]![indexPath.row]
         
         currentArticle.currentPlace = Int(indexPath.row)
-        print(currentArticle.currentPlace)
+//        print(currentArticle.currentPlace)
         
         let cell =  tableView.dequeueReusableCellWithIdentifier("Article") as! ArticleTableViewCell
 
