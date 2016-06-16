@@ -34,6 +34,7 @@ class Article: NSObject, NSCoding {
     var section : String
     var summary : String
     var link : String
+    var currentPlace : Int = -1
     
     // MARK: Archiving Paths
     
@@ -113,7 +114,7 @@ class Article: NSObject, NSCoding {
         linkNSString = linkNSString.substringFromIndex(3)
         
         let link = linkNSString as String
-        print(link)
+//        print(link)
         
         let options = [
             "\n\t\t\t\tArts" : "Arts",
@@ -165,6 +166,7 @@ class Article: NSObject, NSCoding {
         tmp["pubDate"] = self.date
         tmp["content:encoded"] = self.bodyText
         tmp["link"] = self.link
+        tmp["currentPlace"] = String(self.currentPlace)
         
         return tmp
     }

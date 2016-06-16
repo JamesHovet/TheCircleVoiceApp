@@ -109,8 +109,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //put data into the cells
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        //let currentDict = data[currentSection]![indexPath.row] as Dictionary<String,String>
         let currentArticle = articles[currentSection]![indexPath.row]
+        
+        currentArticle.currentPlace = Int(indexPath.row)
+        print(currentArticle.currentPlace)
+        
         let cell =  tableView.dequeueReusableCellWithIdentifier("Article") as! ArticleTableViewCell
 
         

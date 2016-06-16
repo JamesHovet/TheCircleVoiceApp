@@ -45,6 +45,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     }
     override func viewWillAppear(animated: Bool) {
         
+//        print("CurrentPlace is \(message["currentPlace"])")
+//        print("CurrentPlace INT is \(Int(message["currentPlace"]!))")
+        
         SectionTitle.text = message["category"]
         Headline.text = message["title"]
         Byline.text = (message["dc:creator"]! as NSString).substringFromIndex(3)
