@@ -684,6 +684,7 @@
                                 <exclude reference="YPV-T3-xkF"/>
                                 <exclude reference="cfF-LH-UEA"/>
                                 <exclude reference="qi6-1D-4Aj"/>
+                                <exclude reference="10N-4f-CQV"/>
                                 <exclude reference="av1-Fn-lwn"/>
                                 <exclude reference="VGI-UF-RP5"/>
                                 <exclude reference="8IX-mm-gak"/>
@@ -697,7 +698,6 @@
                                 <exclude reference="f0W-Rb-zwQ"/>
                                 <exclude reference="gAL-71-czh"/>
                                 <exclude reference="tsj-cF-OXy"/>
-                                <exclude reference="10N-4f-CQV"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -751,6 +751,7 @@
                                 <exclude reference="YPV-T3-xkF"/>
                                 <include reference="cfF-LH-UEA"/>
                                 <include reference="qi6-1D-4Aj"/>
+                                <exclude reference="10N-4f-CQV"/>
                                 <include reference="av1-Fn-lwn"/>
                                 <exclude reference="VGI-UF-RP5"/>
                                 <include reference="8IX-mm-gak"/>
@@ -764,7 +765,6 @@
                                 <exclude reference="f0W-Rb-zwQ"/>
                                 <exclude reference="gAL-71-czh"/>
                                 <exclude reference="tsj-cF-OXy"/>
-                                <exclude reference="10N-4f-CQV"/>
                             </mask>
                         </variation>
                     </view>
@@ -945,7 +945,7 @@
         <!--Article View Controller-->
         <scene sceneID="yYW-kB-bYE">
             <objects>
-                <viewController id="WgJ-rd-IfI" customClass="ArticleViewController" customModule="Circle_Voice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="idArticleViewController" id="WgJ-rd-IfI" customClass="ArticleViewController" customModule="Circle_Voice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FDp-SW-9ii"/>
                         <viewControllerLayoutGuide type="bottom" id="ncY-yM-lTJ"/>
@@ -1022,6 +1022,10 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <exclude reference="hQA-f8-7LM"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="3yw-Fw-U3h" appends="YES" id="xXL-PE-Inx"/>
+                                            <outletCollection property="gestureRecognizers" destination="tB4-vJ-Utr" appends="YES" id="dhS-y9-Z6B"/>
+                                        </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert Headlines Here. And this is a second line" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6jT-8E-fb3">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -1495,6 +1499,16 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                         <action selector="shareButtonPressed:" destination="WgJ-rd-IfI" id="WTL-aE-opD"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="3yw-Fw-U3h">
+                    <connections>
+                        <action selector="SwipeRight:" destination="WgJ-rd-IfI" id="vCq-hH-qWo"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="tB4-vJ-Utr">
+                    <connections>
+                        <action selector="SwipeLeft:" destination="WgJ-rd-IfI" id="Qsb-lj-m4C"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2941.5" y="396"/>
         </scene>
