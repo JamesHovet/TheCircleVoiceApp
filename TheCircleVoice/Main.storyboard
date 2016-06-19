@@ -684,6 +684,7 @@
                                 <exclude reference="YPV-T3-xkF"/>
                                 <exclude reference="cfF-LH-UEA"/>
                                 <exclude reference="qi6-1D-4Aj"/>
+                                <exclude reference="av1-Fn-lwn"/>
                                 <exclude reference="VGI-UF-RP5"/>
                                 <exclude reference="8IX-mm-gak"/>
                                 <exclude reference="a5a-QT-W8b"/>
@@ -697,7 +698,6 @@
                                 <exclude reference="gAL-71-czh"/>
                                 <exclude reference="tsj-cF-OXy"/>
                                 <exclude reference="10N-4f-CQV"/>
-                                <exclude reference="av1-Fn-lwn"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -751,6 +751,7 @@
                                 <exclude reference="YPV-T3-xkF"/>
                                 <include reference="cfF-LH-UEA"/>
                                 <include reference="qi6-1D-4Aj"/>
+                                <include reference="av1-Fn-lwn"/>
                                 <exclude reference="VGI-UF-RP5"/>
                                 <include reference="8IX-mm-gak"/>
                                 <include reference="a5a-QT-W8b"/>
@@ -764,7 +765,6 @@
                                 <exclude reference="gAL-71-czh"/>
                                 <exclude reference="tsj-cF-OXy"/>
                                 <exclude reference="10N-4f-CQV"/>
-                                <include reference="av1-Fn-lwn"/>
                             </mask>
                         </variation>
                     </view>
@@ -982,8 +982,9 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                                <variation key="widthClass=compact">
+                                                <variation key="widthClass=compact" misplaced="YES">
                                                     <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
+                                                    <rect key="frame" x="15" y="279" width="370" height="834.5"/>
                                                 </variation>
                                             </textView>
                                         </subviews>
@@ -1009,7 +1010,8 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <exclude reference="hQA-f8-7LM"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="1133.5"/>
                                             <mask key="constraints">
                                                 <exclude reference="kZF-t9-1ph"/>
                                                 <exclude reference="sMb-US-zsO"/>
@@ -1057,7 +1059,8 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <exclude reference="Xf8-3i-vVT"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="20" y="198" width="327" height="28"/>
                                             <mask key="constraints">
                                                 <exclude reference="Xf8-3i-vVT"/>
                                             </mask>
@@ -1076,7 +1079,8 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <exclude reference="4yO-zF-nq8"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="20" y="226" width="327" height="37"/>
                                             <mask key="constraints">
                                                 <include reference="4yO-zF-nq8"/>
                                             </mask>
@@ -1095,7 +1099,8 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <exclude reference="pEp-ba-HOj"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="20" y="266" width="285" height="4"/>
                                             <mask key="constraints">
                                                 <include reference="MXY-u4-TRG"/>
                                                 <include reference="pEp-ba-HOj"/>
@@ -1133,7 +1138,8 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <exclude reference="FnS-g2-HW0"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="20" y="0.0" width="122.5" height="65"/>
                                             <mask key="constraints">
                                                 <include reference="FnS-g2-HW0"/>
                                             </mask>
@@ -1224,6 +1230,33 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <exclude reference="6uF-7E-Iw6"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="OcM-sX-CBS"/>
+                                        <exclude reference="cjl-Fs-iPF"/>
+                                        <exclude reference="fbl-WI-MRd"/>
+                                        <exclude reference="uFK-WD-ZK8"/>
+                                        <exclude reference="NKs-SX-Ulc"/>
+                                        <exclude reference="O20-MC-ALS"/>
+                                        <exclude reference="ahV-sJ-hDP"/>
+                                        <exclude reference="cJn-uw-wry"/>
+                                        <exclude reference="qHa-td-Bpv"/>
+                                        <exclude reference="DHl-Se-Uq8"/>
+                                        <exclude reference="MY0-jz-3vm"/>
+                                        <exclude reference="l0U-SJ-qYK"/>
+                                        <exclude reference="ndI-GG-bgt"/>
+                                        <exclude reference="OfF-f7-mlj"/>
+                                        <exclude reference="ewP-x0-nsd"/>
+                                        <exclude reference="fQe-p1-tsm"/>
+                                        <exclude reference="GJd-pX-9KV"/>
+                                        <exclude reference="IdC-sg-LSG"/>
+                                        <exclude reference="kmR-ye-ZpB"/>
+                                        <exclude reference="CUd-xv-KGk"/>
+                                        <exclude reference="Pe9-4s-98d"/>
+                                        <exclude reference="jX0-uq-jnX"/>
+                                        <exclude reference="3Bj-qf-CD9"/>
+                                        <exclude reference="emE-6P-wkT"/>
+                                        <exclude reference="52Y-v5-rAB"/>
+                                        <exclude reference="nnL-vv-KSt"/>
+                                        <exclude reference="xiW-aL-Toh"/>
                                         <exclude reference="Nep-Hr-eQc"/>
                                         <exclude reference="iuN-H6-Bbd"/>
                                         <exclude reference="tAO-hs-4f5"/>
@@ -1237,33 +1270,6 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <exclude reference="u1G-9G-9v1"/>
                                         <exclude reference="w0G-aY-IXn"/>
                                         <exclude reference="ylU-7E-5m9"/>
-                                        <exclude reference="OfF-f7-mlj"/>
-                                        <exclude reference="ewP-x0-nsd"/>
-                                        <exclude reference="fQe-p1-tsm"/>
-                                        <exclude reference="NKs-SX-Ulc"/>
-                                        <exclude reference="O20-MC-ALS"/>
-                                        <exclude reference="ahV-sJ-hDP"/>
-                                        <exclude reference="cJn-uw-wry"/>
-                                        <exclude reference="qHa-td-Bpv"/>
-                                        <exclude reference="DHl-Se-Uq8"/>
-                                        <exclude reference="MY0-jz-3vm"/>
-                                        <exclude reference="l0U-SJ-qYK"/>
-                                        <exclude reference="ndI-GG-bgt"/>
-                                        <exclude reference="GJd-pX-9KV"/>
-                                        <exclude reference="IdC-sg-LSG"/>
-                                        <exclude reference="kmR-ye-ZpB"/>
-                                        <exclude reference="3Bj-qf-CD9"/>
-                                        <exclude reference="emE-6P-wkT"/>
-                                        <exclude reference="52Y-v5-rAB"/>
-                                        <exclude reference="nnL-vv-KSt"/>
-                                        <exclude reference="xiW-aL-Toh"/>
-                                        <exclude reference="CUd-xv-KGk"/>
-                                        <exclude reference="Pe9-4s-98d"/>
-                                        <exclude reference="jX0-uq-jnX"/>
-                                        <exclude reference="OcM-sX-CBS"/>
-                                        <exclude reference="cjl-Fs-iPF"/>
-                                        <exclude reference="fbl-WI-MRd"/>
-                                        <exclude reference="uFK-WD-ZK8"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -1279,6 +1285,33 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <include reference="6uF-7E-Iw6"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="OcM-sX-CBS"/>
+                                        <include reference="cjl-Fs-iPF"/>
+                                        <exclude reference="fbl-WI-MRd"/>
+                                        <exclude reference="uFK-WD-ZK8"/>
+                                        <include reference="NKs-SX-Ulc"/>
+                                        <include reference="O20-MC-ALS"/>
+                                        <include reference="ahV-sJ-hDP"/>
+                                        <include reference="cJn-uw-wry"/>
+                                        <include reference="qHa-td-Bpv"/>
+                                        <exclude reference="DHl-Se-Uq8"/>
+                                        <include reference="MY0-jz-3vm"/>
+                                        <exclude reference="l0U-SJ-qYK"/>
+                                        <include reference="ndI-GG-bgt"/>
+                                        <include reference="OfF-f7-mlj"/>
+                                        <exclude reference="ewP-x0-nsd"/>
+                                        <exclude reference="fQe-p1-tsm"/>
+                                        <include reference="GJd-pX-9KV"/>
+                                        <include reference="IdC-sg-LSG"/>
+                                        <include reference="kmR-ye-ZpB"/>
+                                        <exclude reference="CUd-xv-KGk"/>
+                                        <include reference="Pe9-4s-98d"/>
+                                        <include reference="jX0-uq-jnX"/>
+                                        <include reference="3Bj-qf-CD9"/>
+                                        <include reference="emE-6P-wkT"/>
+                                        <include reference="52Y-v5-rAB"/>
+                                        <include reference="nnL-vv-KSt"/>
+                                        <exclude reference="xiW-aL-Toh"/>
                                         <include reference="Nep-Hr-eQc"/>
                                         <include reference="iuN-H6-Bbd"/>
                                         <exclude reference="tAO-hs-4f5"/>
@@ -1292,33 +1325,6 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <include reference="u1G-9G-9v1"/>
                                         <include reference="w0G-aY-IXn"/>
                                         <exclude reference="ylU-7E-5m9"/>
-                                        <include reference="OfF-f7-mlj"/>
-                                        <exclude reference="ewP-x0-nsd"/>
-                                        <exclude reference="fQe-p1-tsm"/>
-                                        <include reference="NKs-SX-Ulc"/>
-                                        <include reference="O20-MC-ALS"/>
-                                        <include reference="ahV-sJ-hDP"/>
-                                        <include reference="cJn-uw-wry"/>
-                                        <include reference="qHa-td-Bpv"/>
-                                        <exclude reference="DHl-Se-Uq8"/>
-                                        <include reference="MY0-jz-3vm"/>
-                                        <exclude reference="l0U-SJ-qYK"/>
-                                        <include reference="ndI-GG-bgt"/>
-                                        <include reference="GJd-pX-9KV"/>
-                                        <include reference="IdC-sg-LSG"/>
-                                        <include reference="kmR-ye-ZpB"/>
-                                        <include reference="3Bj-qf-CD9"/>
-                                        <include reference="emE-6P-wkT"/>
-                                        <include reference="52Y-v5-rAB"/>
-                                        <include reference="nnL-vv-KSt"/>
-                                        <exclude reference="xiW-aL-Toh"/>
-                                        <exclude reference="CUd-xv-KGk"/>
-                                        <include reference="Pe9-4s-98d"/>
-                                        <include reference="jX0-uq-jnX"/>
-                                        <include reference="OcM-sX-CBS"/>
-                                        <include reference="cjl-Fs-iPF"/>
-                                        <exclude reference="fbl-WI-MRd"/>
-                                        <exclude reference="uFK-WD-ZK8"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -1396,28 +1402,28 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                 <exclude reference="OU5-uN-TPg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0qo-5Y-dha"/>
-                                <exclude reference="1ge-Zz-iEm"/>
-                                <exclude reference="dg7-TB-eUE"/>
-                                <exclude reference="ySS-HO-s14"/>
+                                <exclude reference="ckR-TN-ln4"/>
+                                <exclude reference="BF8-z7-XrK"/>
                                 <exclude reference="C2J-uC-8Mg"/>
                                 <exclude reference="UxY-iy-vB7"/>
                                 <exclude reference="dmn-eh-vCr"/>
                                 <exclude reference="oQ5-Qx-VGt"/>
+                                <exclude reference="0qo-5Y-dha"/>
+                                <exclude reference="1ge-Zz-iEm"/>
+                                <exclude reference="dg7-TB-eUE"/>
+                                <exclude reference="ySS-HO-s14"/>
+                                <exclude reference="d6e-LY-gME"/>
                                 <exclude reference="6XZ-XZ-cDC"/>
                                 <exclude reference="Rvj-HH-WaH"/>
                                 <exclude reference="ctp-tB-9px"/>
-                                <exclude reference="Bdx-MT-iCh"/>
-                                <exclude reference="TI9-hu-xZ0"/>
-                                <exclude reference="hf6-uS-8ms"/>
                                 <exclude reference="D6j-j4-NqL"/>
                                 <exclude reference="JKF-hr-YT8"/>
                                 <exclude reference="VnH-Ie-Tlb"/>
                                 <exclude reference="yJf-gI-nHs"/>
                                 <exclude reference="yaf-Z3-qhu"/>
-                                <exclude reference="d6e-LY-gME"/>
-                                <exclude reference="ckR-TN-ln4"/>
-                                <exclude reference="BF8-z7-XrK"/>
+                                <exclude reference="Bdx-MT-iCh"/>
+                                <exclude reference="TI9-hu-xZ0"/>
+                                <exclude reference="hf6-uS-8ms"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1430,28 +1436,28 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                 <exclude reference="OU5-uN-TPg"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0qo-5Y-dha"/>
-                                <include reference="1ge-Zz-iEm"/>
-                                <exclude reference="dg7-TB-eUE"/>
-                                <include reference="ySS-HO-s14"/>
+                                <exclude reference="ckR-TN-ln4"/>
+                                <include reference="BF8-z7-XrK"/>
                                 <include reference="C2J-uC-8Mg"/>
                                 <include reference="UxY-iy-vB7"/>
                                 <include reference="dmn-eh-vCr"/>
                                 <include reference="oQ5-Qx-VGt"/>
+                                <include reference="0qo-5Y-dha"/>
+                                <include reference="1ge-Zz-iEm"/>
+                                <exclude reference="dg7-TB-eUE"/>
+                                <include reference="ySS-HO-s14"/>
+                                <exclude reference="d6e-LY-gME"/>
                                 <include reference="6XZ-XZ-cDC"/>
                                 <include reference="Rvj-HH-WaH"/>
                                 <include reference="ctp-tB-9px"/>
-                                <include reference="Bdx-MT-iCh"/>
-                                <include reference="TI9-hu-xZ0"/>
-                                <include reference="hf6-uS-8ms"/>
                                 <include reference="D6j-j4-NqL"/>
                                 <include reference="JKF-hr-YT8"/>
                                 <include reference="VnH-Ie-Tlb"/>
                                 <include reference="yJf-gI-nHs"/>
                                 <include reference="yaf-Z3-qhu"/>
-                                <exclude reference="d6e-LY-gME"/>
-                                <exclude reference="ckR-TN-ln4"/>
-                                <include reference="BF8-z7-XrK"/>
+                                <include reference="Bdx-MT-iCh"/>
+                                <include reference="TI9-hu-xZ0"/>
+                                <include reference="hf6-uS-8ms"/>
                             </mask>
                         </variation>
                     </view>
