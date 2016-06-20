@@ -130,6 +130,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    
     //worry about getting the data from the parser
     func parsingWasFinished() {
         

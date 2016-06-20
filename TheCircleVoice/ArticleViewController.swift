@@ -10,8 +10,31 @@ import UIKit
 
 class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
-    //get data from segue
     var message:Dictionary<String,String>!
+    
+    @IBOutlet var subview: UIView!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+    
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+        subview = UIView()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    convenience init() {
+        self.init(nibName: nil, bundle: nil)
+        self.message = ["category":"NOT FOUND","title":"NOT FOUND","dc:creator":"NOT FOUND","pubDate":"NOT FOUND","currentPlace":"0","content:encoded":"NOT FOUND"]
+    }
+    
+    convenience init(initMessage:Dictionary<String,String>){
+        self.init()
+        self.message = initMessage
+    }
+    
+    //get data from segue
+    
     
     var place : Int!
     
@@ -29,7 +52,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var PublishDate: UILabel!
     
     @IBOutlet weak var Article: UITextView!
-
+    
     func displayShareSheet(shareContent:NSURL) {
         let activityViewController = UIActivityViewController(activityItems: [shareContent], applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: {})
@@ -42,38 +65,51 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func SwipeRight(sender: UISwipeGestureRecognizer) {
-    
+        
         print("swipe right")
         
-//        print("new article is \(place + 1)")
+        print("presentingVC : \(presentingViewController)")
+        
+        print(self.place)
+        
+        if self.place == -1 {
+            print("ERROR: PLACE IS -1")
+            self.place = 0
+        }
+        
+        var parentVC = presentingViewController as! ViewController
+        
+//        print(parentVC.articles)
+        
+//        print(parentVC.articles[parentVC.currentSection]![self.place].toDict())
+//        print(parentVC.articles[parentVC.currentSection]![self.place + 1].toDict())
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("idArticleViewController") as! ArticleViewController
         
-        print("vc = \(vc)")
-        print("presenting:")
+        vc.message = parentVC.articles[parentVC.currentSection]![self.place + 1].toDict()
         
-        self.presentViewController(vc, animated: false, completion: {() -> Void in
-            
-            print((self.presentedViewController as! ArticleViewController).message)
-            
-            var newVC = self.presentedViewController as! ArticleViewController
-            
-            newVC.message = ["category":"Test","title":"Test","dc:creator":"test","pubDate":"test","currentPlace":"0","content:encoded":"this is a test"]
-            
-            newVC.update()
-            
+        self.dismissViewControllerAnimated(false, completion: { () -> Void in
+            print("completion: dismissing VC")
         })
-        self.dismissViewControllerAnimated(false, completion: nil)
+
+        
+//        vc.message = ["category":"Test01","title":"Test","dc:creator":"test","pubDate":"test","currentPlace":"0","content:encoded":"this is a test","link":"http://google.com"]
+
+        
+        parentVC.presentViewController(vc, animated: false, completion: {() -> Void in
+            print("completion: presenting VC")
+        })
+        
         
     }
     
     @IBAction func SwipeLeft(sender: UISwipeGestureRecognizer) {
-    
+        
         print("swipe left")
         
-//        print("new article is \(place - 1)")
-    
+        //        print("new article is \(place - 1)")
+        
     }
     
     
@@ -86,8 +122,13 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         //        print("CurrentPlace is \(message["currentPlace"])")
         //        print("CurrentPlace INT is \(Int(message["currentPlace"]!))")
         
-//        print(self.message)
-        print(message)
+        //        print(self.message)
+        
+//        print(SectionTitle.text)
+        
+//        print(message)
+        
+//        print(message["title"])
         
         SectionTitle.text = message["category"]
         Headline.text = message["title"]
@@ -109,10 +150,19 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         Article.attributedText = attrStr
     }
     
+    override var description: String {
+        if self.Headline != nil{
+            return "ArticleVC with Article title: \(self.Headline.text)"
+        } else {
+            return "ArticleVC with Article title nil"
+        }
+    }
+    
+    
     override func viewWillAppear(animated: Bool) {
         
         self.update()
         
     }
-
+    
 }
