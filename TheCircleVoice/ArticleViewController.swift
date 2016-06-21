@@ -66,50 +66,65 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func SwipeRight(sender: UISwipeGestureRecognizer) {
         
-        print("swipe right")
-        
-        print("presentingVC : \(presentingViewController)")
-        
-//        print(self.place)
-        
-        if self.place == -1 {
-            print("ERROR: PLACE IS -1")
-            self.place = 0
-        }
-        
-        var parentVC = presentingViewController as! ViewController
-        
-//        print(parentVC.articles)
-        
-//        print(parentVC.articles[parentVC.currentSection]![self.place].toDict())
-//        print(parentVC.articles[parentVC.currentSection]![self.place + 1].toDict())
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("idArticleViewController") as! ArticleViewController
-        
-        vc.message = parentVC.articles[parentVC.currentSection]![self.place + 1].toDict()
-        
-        self.dismissViewControllerAnimated(false, completion: { () -> Void in
-            print("completion: dismissing VC")
-        })
-
-        
-//        vc.message = ["category":"Test01","title":"Test","dc:creator":"test","pubDate":"test","currentPlace":"0","content:encoded":"this is a test","link":"http://google.com"]
-
-        
-        parentVC.presentViewController(vc, animated: false, completion: {() -> Void in
-            print("completion: presenting VC")
-        })
-        
+        swipe(true)
         
     }
     
     @IBAction func SwipeLeft(sender: UISwipeGestureRecognizer) {
         
-        print("swipe left")
+        swipe(false)
+
+    }
+    
+    func swipe(isRight:Bool){
         
-        //        print("new article is \(place - 1)")
+        var newPlace : Int
         
+        if isRight == true{
+            print("swipe right")
+            newPlace = self.place - 1
+        } else {
+            print("swipe left")
+            newPlace = self.place + 1
+        }
+        
+        
+        
+        print("presentingVC : \(presentingViewController)")
+        
+        //        print(self.place)
+        
+        let parentVC = presentingViewController as! ViewController
+        
+        if newPlace == -1 || newPlace >= parentVC.articles[parentVC.currentSection]!.count {
+            return
+        }
+        
+        
+        //        print(parentVC.articles)
+        
+        //        print(parentVC.articles[parentVC.currentSection]![self.place].toDict())
+        //        print(parentVC.articles[parentVC.currentSection]![self.place + 1].toDict())
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("idArticleViewController") as! ArticleViewController
+        
+        
+        vc.message = parentVC.articles[parentVC.currentSection]![newPlace].toDict()
+        
+        
+        self.dismissViewControllerAnimated(false, completion: { () -> Void in
+            print("completion: dismissing VC")
+        })
+        
+        
+        //        vc.message = ["category":"Test01","title":"Test","dc:creator":"test","pubDate":"test","currentPlace":"0","content:encoded":"this is a test","link":"http://google.com"]
+        
+        
+        parentVC.presentViewController(vc, animated: false, completion: {() -> Void in
+            print("completion: presenting VC")
+        })
+
     }
     
     
