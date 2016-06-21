@@ -80,12 +80,29 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         var newPlace : Int
         
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+        var x : CGFloat
+        let y : CGFloat = 0.0
+        
+        var dx : CGFloat
+        let dy : CGFloat = 0.0
+        
+        let animTime : Double = 0.1
+        
         if isRight == true{
             print("swipe right")
             newPlace = self.place - 1
+            x = -screenWidth
+            dx = screenWidth
+            
+            
         } else {
             print("swipe left")
             newPlace = self.place + 1
+            x = screenWidth
+            dx = -screenWidth
         }
         
         
@@ -109,21 +126,47 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("idArticleViewController") as! ArticleViewController
         
-        
         vc.message = parentVC.articles[parentVC.currentSection]![newPlace].toDict()
         
         
-        self.dismissViewControllerAnimated(false, completion: { () -> Void in
-            print("completion: dismissing VC")
-        })
+        
+        let window = UIApplication.sharedApplication().keyWindow
+        window?.insertSubview(vc.view, aboveSubview: self.view)
         
         
-        //        vc.message = ["category":"Test01","title":"Test","dc:creator":"test","pubDate":"test","currentPlace":"0","content:encoded":"this is a test","link":"http://google.com"]
+        var firstVCView = self.view
+        var secondVCView = vc.view
+        
+        secondVCView.frame = CGRectMake(x, y, screenWidth, screenHeight)
+        
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            firstVCView.frame = CGRectOffset(firstVCView.frame, dx, dy)
+            secondVCView.frame = CGRectOffset(secondVCView.frame, dx, dy)
+        })  { (Finished) -> Void in
+            print("FINISHED ANIM")
+            
+            self.dismissViewControllerAnimated(false, completion: { () -> Void in
+                print("completion: dismissing VC")
+            })
+            
+            
+            //        vc.message = ["category":"Test01","title":"Test","dc:creator":"test","pubDate":"test","currentPlace":"0","content:encoded":"this is a test","link":"http://google.com"]
+            
+            
+            parentVC.presentViewController(vc, animated: false, completion: {() -> Void in
+                
+                print("updating vc")
+                vc.update()
+                print("completion: presenting VC")
+                
+                
+            })
+            
+        }
         
         
-        parentVC.presentViewController(vc, animated: false, completion: {() -> Void in
-            print("completion: presenting VC")
-        })
+        
+        
 
     }
     
@@ -156,11 +199,14 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         //PublishDate.text = dateArr[0] + " " + dateArr[1] + " " + dateArr[2] + " " + dateArr[3]
         
+        let attrs = [NSFontAttributeName : UIFont(name: "Georgia", size: 16.0)!]
         
         let attrStr = try! NSMutableAttributedString(
-            data: message["content:encoded"]!.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+            data: message["content:encoded"]!.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: false)!,
             options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
             documentAttributes: nil)
+        
+        attrStr.addAttributes(attrs, range: NSRange(location: 0,length: attrStr.length))
         
         Article.attributedText = attrStr
     }
@@ -176,9 +222,12 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
+        print(self.Article.attributedText.string)
+        print(self.Article.attributedText.attributesAtIndex(0, effectiveRange: nil))
+        
         self.update()
         
-        print("aboutToAppear: \(self.place)")
+//        print("aboutToAppear: \(self.place)")
         
     }
     

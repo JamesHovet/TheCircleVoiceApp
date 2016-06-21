@@ -391,7 +391,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         for i in 0..<articles[self.currentSection]!.count{
             articles[self.currentSection]![i].currentPlace = i
-            print(self.currentSection, i, articles[self.currentSection]![i])
+//            print(self.currentSection, i, articles[self.currentSection]![i])
         }
         
     }
