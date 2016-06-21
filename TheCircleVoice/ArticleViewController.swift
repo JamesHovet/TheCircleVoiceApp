@@ -70,7 +70,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         print("presentingVC : \(presentingViewController)")
         
-        print(self.place)
+//        print(self.place)
         
         if self.place == -1 {
             print("ERROR: PLACE IS -1")
@@ -162,6 +162,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(animated: Bool) {
         
         self.update()
+        
+        print("aboutToAppear: \(self.place)")
         
     }
     

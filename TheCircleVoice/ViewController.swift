@@ -111,7 +111,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let currentArticle = articles[currentSection]![indexPath.row]
         
-        currentArticle.currentPlace = Int(indexPath.row)
+//        currentArticle.currentPlace = Int(indexPath.row)
 //        print(currentArticle.currentPlace)
         
         let cell =  tableView.dequeueReusableCellWithIdentifier("Article") as! ArticleTableViewCell
@@ -216,6 +216,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         saveArticles(parseReturn(1, startingDict: articles))
         
         articles = loadArticles()!
+        self.getArticleIndexes()
+        
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -233,8 +235,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             for n in 2..<11{
                 self.saveArticles(self.parseReturn(n, startingDict: self.articles))
                 self.articles = self.loadArticles()!
+                self.getArticleIndexes()
             }
             self.TableView.reloadData()
+            
 //            print("reloaded data !!!")
             
             
@@ -311,6 +315,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func slideIn(){
+        
+        self.getArticleIndexes()
 
         
 //        print("topView frame is:")
@@ -379,6 +385,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             TableView.setContentOffset(CGPointMake(0, 0 - TableView.contentInset.top), animated: false)
         }
         slideIn()
+    }
+    
+    func getArticleIndexes() {
+        
+        for i in 0..<articles[self.currentSection]!.count{
+            articles[self.currentSection]![i].currentPlace = i
+            print(self.currentSection, i, articles[self.currentSection]![i])
+        }
+        
     }
     
     
