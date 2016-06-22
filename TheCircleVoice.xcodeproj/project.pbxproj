@@ -21,7 +21,12 @@
 		591118E81CA0BD5F00F91103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 591118E71CA0BD5F00F91103 /* Main.storyboard */; };
 		591118EA1CA0BDFB00F91103 /* ArticleEnterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */; };
 		591118EC1CA0C71400F91103 /* ArticleEnterUnwind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */; };
-		591118F21CA0EA5000F91103 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591118F11CA0EA5000F91103 /* AboutUsViewController.swift */; };
+		591F30331D1AB9A100516661 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F30321D1AB9A100516661 /* AboutUsViewController.swift */; };
+		591F30381D1ABA2000516661 /* Airship in Resources */ = {isa = PBXBuildFile; fileRef = 591F30361D1ABA2000516661 /* Airship */; };
+		591F30391D1ABA2000516661 /* AirshipKit in Resources */ = {isa = PBXBuildFile; fileRef = 591F30371D1ABA2000516661 /* AirshipKit */; };
+		591F30401D1ABA6A00516661 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591F303F1D1ABA4400516661 /* AirshipKit.framework */; };
+		591F30411D1ABA6A00516661 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 591F303F1D1ABA4400516661 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		591F30461D1ABAE300516661 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 591F30451D1ABAE300516661 /* AirshipConfig.plist */; };
 		5993D1831D0FAEF800502D7E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993D1821D0FAEF800502D7E /* Article.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +45,35 @@
 			remoteGlobalIDString = 591118A51CA0B67500F91103;
 			remoteInfo = TheCircleVoice;
 		};
+		591F303E1D1ABA4400516661 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 591F303A1D1ABA4400516661 /* AirshipKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 494DD9571B0EB677009C134E;
+			remoteInfo = AirshipKit;
+		};
+		591F30421D1ABA6A00516661 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 591F303A1D1ABA4400516661 /* AirshipKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 494DD9561B0EB677009C134E;
+			remoteInfo = AirshipKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		591F30441D1ABA6A00516661 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				591F30411D1ABA6A00516661 /* AirshipKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		591118A61CA0B67500F91103 /* Circle Voice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circle Voice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +97,11 @@
 		591118E71CA0BD5F00F91103 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnterSegue.swift; sourceTree = "<group>"; };
 		591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnterUnwind.swift; sourceTree = "<group>"; };
-		591118F11CA0EA5000F91103 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = ../AboutUsViewController.swift; sourceTree = "<group>"; };
+		591F30321D1AB9A100516661 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		591F30361D1ABA2000516661 /* Airship */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Airship; path = "libUAirship-7.2.0/Airship"; sourceTree = "<group>"; };
+		591F30371D1ABA2000516661 /* AirshipKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AirshipKit; path = "libUAirship-7.2.0/AirshipKit"; sourceTree = "<group>"; };
+		591F303A1D1ABA4400516661 /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirshipKit.xcodeproj; path = "libUAirship-7.2.0/AirshipKit/AirshipKit.xcodeproj"; sourceTree = "<group>"; };
+		591F30451D1ABAE300516661 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		5993D1821D0FAEF800502D7E /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591F30401D1ABA6A00516661 /* AirshipKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +134,8 @@
 		5911189D1CA0B67500F91103 = {
 			isa = PBXGroup;
 			children = (
+				591F30451D1ABAE300516661 /* AirshipConfig.plist */,
+				591F303A1D1ABA4400516661 /* AirshipKit.xcodeproj */,
 				591118E51CA0BCB500F91103 /* ufonts.com_old-english-text-mt.ttf */,
 				591118E31CA0BCA800F91103 /* lmromancaps10-oblique.otf */,
 				591118D91CA0B7EC00F91103 /* FontAssets */,
@@ -103,6 +143,8 @@
 				591118BD1CA0B67500F91103 /* TheCircleVoiceTests */,
 				591118C81CA0B67500F91103 /* TheCircleVoiceUITests */,
 				591118A71CA0B67500F91103 /* Products */,
+				591F30361D1ABA2000516661 /* Airship */,
+				591F30371D1ABA2000516661 /* AirshipKit */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				591118E71CA0BD5F00F91103 /* Main.storyboard */,
-				591118F11CA0EA5000F91103 /* AboutUsViewController.swift */,
+				591F30321D1AB9A100516661 /* AboutUsViewController.swift */,
 				591118E91CA0BDFB00F91103 /* ArticleEnterSegue.swift */,
 				591118EB1CA0C71400F91103 /* ArticleEnterUnwind.swift */,
 				591118A91CA0B67500F91103 /* AppDelegate.swift */,
@@ -154,6 +196,14 @@
 			path = TheCircleVoiceUITests;
 			sourceTree = "<group>";
 		};
+		591F303B1D1ABA4400516661 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				591F303F1D1ABA4400516661 /* AirshipKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,10 +214,12 @@
 				591118A21CA0B67500F91103 /* Sources */,
 				591118A31CA0B67500F91103 /* Frameworks */,
 				591118A41CA0B67500F91103 /* Resources */,
+				591F30441D1ABA6A00516661 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				591F30431D1ABA6A00516661 /* PBXTargetDependency */,
 			);
 			name = TheCircleVoice;
 			productName = TheCircleVoice;
@@ -247,6 +299,12 @@
 			mainGroup = 5911189D1CA0B67500F91103;
 			productRefGroup = 591118A71CA0B67500F91103 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 591F303B1D1ABA4400516661 /* Products */;
+					ProjectRef = 591F303A1D1ABA4400516661 /* AirshipKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				591118A51CA0B67500F91103 /* TheCircleVoice */,
@@ -256,6 +314,16 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		591F303F1D1ABA4400516661 /* AirshipKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AirshipKit.framework;
+			remoteRef = 591F303E1D1ABA4400516661 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		591118A41CA0B67500F91103 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -264,7 +332,10 @@
 				591118E41CA0BCA800F91103 /* lmromancaps10-oblique.otf in Resources */,
 				591118E61CA0BCB500F91103 /* ufonts.com_old-english-text-mt.ttf in Resources */,
 				591118B41CA0B67500F91103 /* LaunchScreen.storyboard in Resources */,
+				591F30461D1ABAE300516661 /* AirshipConfig.plist in Resources */,
+				591F30381D1ABA2000516661 /* Airship in Resources */,
 				591118B11CA0B67500F91103 /* Assets.xcassets in Resources */,
+				591F30391D1ABA2000516661 /* AirshipKit in Resources */,
 				591118E81CA0BD5F00F91103 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				591118F21CA0EA5000F91103 /* AboutUsViewController.swift in Sources */,
+				591F30331D1AB9A100516661 /* AboutUsViewController.swift in Sources */,
 				591118EA1CA0BDFB00F91103 /* ArticleEnterSegue.swift in Sources */,
 				5993D1831D0FAEF800502D7E /* Article.swift in Sources */,
 				591118E21CA0BC6400F91103 /* ArticleTableViewCell.swift in Sources */,
@@ -330,6 +401,11 @@
 			isa = PBXTargetDependency;
 			target = 591118A51CA0B67500F91103 /* TheCircleVoice */;
 			targetProxy = 591118C61CA0B67500F91103 /* PBXContainerItemProxy */;
+		};
+		591F30431D1ABA6A00516661 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AirshipKit;
+			targetProxy = 591F30421D1ABA6A00516661 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -19,6 +19,8 @@ class AboutUsViewController: UIViewController, MFMailComposeViewControllerDelega
     
     var html : String = ""
     
+    
+    
    
     
     @IBAction func SupportEmail(sender: AnyObject) {
@@ -48,6 +50,17 @@ class AboutUsViewController: UIViewController, MFMailComposeViewControllerDelega
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func returnFromAboutUs(){
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    @IBAction func backButtonPressedAction() {
+    
+        returnFromAboutUs()
+        
+    }
     
     override func viewDidLoad() {
         

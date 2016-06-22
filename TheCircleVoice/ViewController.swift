@@ -396,6 +396,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    func showAboutUsViewController(){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("idAboutUsViewController") as! AboutUsViewController
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func showAboutUsAction(sender: AnyObject) {
+        
+        showAboutUsViewController()
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

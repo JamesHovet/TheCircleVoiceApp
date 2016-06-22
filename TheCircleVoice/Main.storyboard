@@ -684,8 +684,6 @@
                                 <exclude reference="YPV-T3-xkF"/>
                                 <exclude reference="cfF-LH-UEA"/>
                                 <exclude reference="qi6-1D-4Aj"/>
-                                <exclude reference="10N-4f-CQV"/>
-                                <exclude reference="av1-Fn-lwn"/>
                                 <exclude reference="VGI-UF-RP5"/>
                                 <exclude reference="8IX-mm-gak"/>
                                 <exclude reference="a5a-QT-W8b"/>
@@ -698,6 +696,8 @@
                                 <exclude reference="f0W-Rb-zwQ"/>
                                 <exclude reference="gAL-71-czh"/>
                                 <exclude reference="tsj-cF-OXy"/>
+                                <exclude reference="10N-4f-CQV"/>
+                                <exclude reference="av1-Fn-lwn"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -751,8 +751,6 @@
                                 <exclude reference="YPV-T3-xkF"/>
                                 <include reference="cfF-LH-UEA"/>
                                 <include reference="qi6-1D-4Aj"/>
-                                <exclude reference="10N-4f-CQV"/>
-                                <include reference="av1-Fn-lwn"/>
                                 <exclude reference="VGI-UF-RP5"/>
                                 <include reference="8IX-mm-gak"/>
                                 <include reference="a5a-QT-W8b"/>
@@ -765,6 +763,8 @@
                                 <exclude reference="f0W-Rb-zwQ"/>
                                 <exclude reference="gAL-71-czh"/>
                                 <exclude reference="tsj-cF-OXy"/>
+                                <exclude reference="10N-4f-CQV"/>
+                                <include reference="av1-Fn-lwn"/>
                             </mask>
                         </variation>
                     </view>
@@ -778,7 +778,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="unF-ns-GIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ODq-ef-Fs3">
                     <connections>
-                        <segue destination="NLm-Be-FNv" kind="show" id="e7I-B3-xWo"/>
+                        <action selector="showAboutUsAction:" destination="b6Z-Qt-xEc" id="FPK-bx-Nh8"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="YFr-RF-623">
@@ -812,7 +812,7 @@
         <!--About Us View Controller-->
         <scene sceneID="uU2-nN-Rdt">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="NLm-Be-FNv" customClass="AboutUsViewController" customModule="Circle_Voice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="idAboutUsViewController" modalPresentationStyle="overCurrentContext" id="NLm-Be-FNv" customClass="AboutUsViewController" customModule="Circle_Voice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O5T-1b-y7t"/>
                         <viewControllerLayoutGuide type="bottom" id="PXM-5i-vK2"/>
@@ -825,7 +825,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="b6Z-Qt-xEc" kind="show" id="XWQ-rB-twQ"/>
+                                    <action selector="backButtonPressedAction" destination="NLm-Be-FNv" eventType="touchUpInside" id="0ae-94-Qvq"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-RG-4lR">
