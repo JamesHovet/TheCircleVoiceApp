@@ -226,26 +226,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         //BACKGROUND FETCHING
         
-        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
-        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
-        dispatch_async(backgroundQueue, {
-            //print("This is run on the background queue")
-            
-            
-            for n in 2..<11{
-                self.saveArticles(self.parseReturn(n, startingDict: self.articles))
-                self.articles = self.loadArticles()!
-                self.getArticleIndexes()
-            }
-            self.TableView.reloadData()
-            
-//            print("reloaded data !!!")
-            
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //print("This is run on the main queue, after the previous code in outer block")
-            })
-        })
+//        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+//        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+//        dispatch_async(backgroundQueue, {
+//            //print("This is run on the background queue")
+//            
+//            
+//            for n in 2..<11{
+//                self.saveArticles(self.parseReturn(n, startingDict: self.articles))
+//                self.articles = self.loadArticles()!
+//                self.getArticleIndexes()
+//            }
+//            self.TableView.reloadData()
+//            
+////            print("reloaded data !!!")
+//            
+//            
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                //print("This is run on the main queue, after the previous code in outer block")
+//            })
+//        })
         
         
     }

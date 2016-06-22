@@ -177,21 +177,17 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     func update() {
         
-        //        print("CurrentPlace is \(message["currentPlace"])")
-        //        print("CurrentPlace INT is \(Int(message["currentPlace"]!))")
-        
-        //        print(self.message)
-        
-//        print(SectionTitle.text)
-        
-//        print(message)
-        
-//        print(message["title"])
-        
         SectionTitle.text = message["category"]
         Headline.text = message["title"]
         Byline.text = (message["dc:creator"]! as NSString).substringFromIndex(3)
-        PublishDate.text = message["pubDate"]
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+        let newDate = dateFormatter.dateFromString(message["pubDate"]!)
+        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
+        let convertedDate = dateFormatter.stringFromDate(newDate!)
+        
+        PublishDate.text = convertedDate
         
         place = Int(message["currentPlace"]!)!
         
