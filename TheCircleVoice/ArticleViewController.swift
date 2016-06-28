@@ -134,12 +134,12 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         window?.insertSubview(vc.view, aboveSubview: self.view)
         
         
-        var firstVCView = self.view
-        var secondVCView = vc.view
+        let firstVCView = self.view
+        let secondVCView = vc.view
         
         secondVCView.frame = CGRectMake(x, y, screenWidth, screenHeight)
         
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
+        UIView.animateWithDuration(animTime, animations: { () -> Void in
             firstVCView.frame = CGRectOffset(firstVCView.frame, dx, dy)
             secondVCView.frame = CGRectOffset(secondVCView.frame, dx, dy)
         })  { (Finished) -> Void in
@@ -195,16 +195,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         //PublishDate.text = dateArr[0] + " " + dateArr[1] + " " + dateArr[2] + " " + dateArr[3]
         
-        let attrs = [NSFontAttributeName : UIFont(name: "Georgia", size: 16.0)!]
+        let returned = bodyTextConverter.convertToAttributedString(message["content:encoded"]!)
         
-        let attrStr = try! NSMutableAttributedString(
-            data: message["content:encoded"]!.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: false)!,
-            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-            documentAttributes: nil)
-        
-        attrStr.addAttributes(attrs, range: NSRange(location: 0,length: attrStr.length))
-        
-        Article.attributedText = attrStr
+        Article.attributedText = returned.0
     }
     
     override var description: String {
@@ -218,8 +211,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
-        print(self.Article.attributedText.string)
-        print(self.Article.attributedText.attributesAtIndex(0, effectiveRange: nil))
+//        print(self.Article.attributedText.string)
+//        print(self.Article.attributedText.attributesAtIndex(0, effectiveRange: nil))
         
         self.update()
         

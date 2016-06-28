@@ -835,9 +835,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="26" y="56" width="554" height="504"/>
-                                </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et7-Oi-9oy">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -855,9 +852,6 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Support"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="518" y="565" width="62" height="33"/>
-                                </variation>
                                 <connections>
                                     <action selector="SupportEmail:" destination="NLm-Be-FNv" eventType="touchUpInside" id="hxt-P3-IXz"/>
                                 </connections>

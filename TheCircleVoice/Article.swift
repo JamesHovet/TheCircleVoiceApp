@@ -108,7 +108,8 @@ class Article: NSObject, NSCoding {
         let byline = d["dc:creator"]
         let date = d["pubDate"]
         let bodyText = d["content:encoded"]
-        let featuredImg : UIImage? = nil
+        
+        var featuredImg : UIImage? = nil
         
         var linkNSString = d["link"]! as NSString
         linkNSString = linkNSString.substringFromIndex(3)

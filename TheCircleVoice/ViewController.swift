@@ -124,6 +124,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let index = currentArticle.summary.endIndex.advancedBy(-10)
         cell.ArticlePreview.text = currentArticle.summary.substringToIndex(index)
         
+        cell.featuredArticle = currentArticle.featuredImg
         
         return cell
         
@@ -315,6 +316,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func slideIn(){
+        
+        
+//        DELETE ME:
+//        
+//        
+        print(articles[currentSection]![0].featuredImg)
+//        
+//        END DELETE ME
+//        
         
         self.getArticleIndexes()
 

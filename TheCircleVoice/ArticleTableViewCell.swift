@@ -14,6 +14,8 @@ class ArticleTableViewCell : UITableViewCell {
     
     var ArticleObject : Article!
     
+    var featuredArticle : UIImage?
+    
     @IBOutlet weak var ArticleTitle: UILabel!
     
     @IBOutlet weak var Byline: UILabel!
