@@ -12,6 +12,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     var message:Dictionary<String,String>!
     
+    var articleMessage : Article!
+    
     @IBOutlet var subview: UIView!
     
     required init(coder aDecoder: NSCoder) {
@@ -50,8 +52,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var Byline: UILabel!
     
     @IBOutlet weak var PublishDate: UILabel!
-    
-    @IBOutlet weak var Article: UITextView!
+   
+    @IBOutlet weak var ArticleTextView: UITextView!
     
     func displayShareSheet(shareContent:NSURL) {
         let activityViewController = UIActivityViewController(activityItems: [shareContent], applicationActivities: nil)
@@ -92,14 +94,14 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         let animTime : Double = 0.1
         
         if isRight == true{
-            print("swipe right")
+//            print("swipe right")
             newPlace = self.place - 1
             x = -screenWidth
             dx = screenWidth
             
             
         } else {
-            print("swipe left")
+//            print("swipe left")
             newPlace = self.place + 1
             x = screenWidth
             dx = -screenWidth
@@ -107,7 +109,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         
         
-        print("presentingVC : \(presentingViewController)")
+//        print("presentingVC : \(presentingViewController)")
         
         //        print(self.place)
         
@@ -143,10 +145,10 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
             firstVCView.frame = CGRectOffset(firstVCView.frame, dx, dy)
             secondVCView.frame = CGRectOffset(secondVCView.frame, dx, dy)
         })  { (Finished) -> Void in
-            print("FINISHED ANIM")
+//            print("FINISHED ANIM")
             
             self.dismissViewControllerAnimated(false, completion: { () -> Void in
-                print("completion: dismissing VC")
+//                print("completion: dismissing VC")
             })
             
             
@@ -155,9 +157,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
             
             parentVC.presentViewController(vc, animated: false, completion: {() -> Void in
                 
-                print("updating vc")
+//                print("updating vc")
                 vc.update()
-                print("completion: presenting VC")
+//                print("completion: presenting VC")
                 
                 
             })
@@ -177,9 +179,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     func update() {
         
-        SectionTitle.text = message["category"]
-        Headline.text = message["title"]
-        Byline.text = (message["dc:creator"]! as NSString).substringFromIndex(3)
+        SectionTitle.text = articleMessage.section
+        Headline.text = articleMessage.headline
+        Byline.text = (articleMessage.byline as NSString).substringFromIndex(3)
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
@@ -189,15 +191,15 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         PublishDate.text = convertedDate
         
-        place = Int(message["currentPlace"]!)!
+        place = Int(articleMessage.currentPlace)
         
         //let dateArr = message["pubDate"]!.characters.split{$0 == " "}.map(String.init)
         
         //PublishDate.text = dateArr[0] + " " + dateArr[1] + " " + dateArr[2] + " " + dateArr[3]
         
-        let returned = bodyTextConverter.convertToAttributedString(message["content:encoded"]!)
+        let returned = bodyTextConverter.convertToAttributedString(articleMessage.bodyText)
         
-        Article.attributedText = returned.0
+        ArticleTextView.attributedText = returned.0
     }
     
     override var description: String {

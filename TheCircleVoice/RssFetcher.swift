@@ -50,13 +50,21 @@ class RssFetcher : NSObject, NSXMLParserDelegate {
     //for each element, add the element name and data to the array of dicts "arrParsedData"
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if !foundCharacters.isEmpty{
-            currentDataDictionary[currentElement] = foundCharacters
+            
+            if foundCharacters == "\n\t\tShowcase"{
+                currentDataDictionary["isShowcase"] = "true"
+//                print("IS TRUE IN RSS")
+            }else{
+                currentDataDictionary[currentElement] = foundCharacters
+            }
             foundCharacters = ""
             if currentElement == "content:encoded" {
+//                print("currentDataDict:\(currentDataDictionary)")
                 arrParsedData.append(currentDataDictionary)
+                currentDataDictionary["isShowcase"] = "false"
+
             }
-            
-        }
+                   }
     }
     
     //delegate handling

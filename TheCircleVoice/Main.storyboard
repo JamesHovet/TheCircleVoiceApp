@@ -965,7 +965,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y57-eR-G51" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEQ-uW-FQA">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEQ-uW-FQA" userLabel="ArticleTextView">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel nulla non justo varius elementum at sit amet justo. Ut vehicula fringilla lorem in dapibus. Integer tristique lectus eget arcu aliquam, fermentum rutrum nunc egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla vehicula metus, non ultrices risus euismod ac. Maecenas quis metus ac diam vestibulum placerat sit amet a mauris. Fusce non lacus condimentum, iaculis erat at, commodo ex. Nunc eget condimentum mi. Vestibulum porttitor laoreet fringilla. Aenean lobortis rutrum diam, et sollicitudin sapien elementum et.
@@ -1460,7 +1460,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="Article" destination="HEQ-uW-FQA" id="11z-8h-Kdo"/>
+                        <outlet property="ArticleTextView" destination="HEQ-uW-FQA" id="4w0-dt-VRp"/>
                         <outlet property="Byline" destination="9MB-bS-flD" id="kII-6h-bZ5"/>
                         <outlet property="HeaderHelperView" destination="pLG-tD-bm7" id="GO9-es-V6i"/>
                         <outlet property="Headline" destination="6jT-8E-fb3" id="g6w-KO-cqm"/>

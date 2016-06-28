@@ -27,7 +27,7 @@ class bodyTextConverter: NSObject{
                 //                print(i[match])
                 let URLString = i[Range(start: match.startIndex.advancedBy(5),end: match.endIndex.advancedBy(-5))]
                 
-                print(URLString)
+//                print(URLString)
                 
                 let url = NSURL(string: URLString)
                 
@@ -63,39 +63,23 @@ class bodyTextConverter: NSObject{
         
     }
     
-    static func extractFeaturedImg(text : String) -> UIImage? {
+    static func extractFeaturedImg(article : Article) -> UIImage? {
         
-        let returned = extractBodyText(text)
+        let text = article.bodyText
         
-        let bodyText = returned.0
-        
-        var downloadedImgs : [UIImage?] = []
-        
-        if returned.1.count != 0 {
+        if let match = text.rangeOfString("src=\".+\" alt", options: .RegularExpressionSearch) {
+            let URLString = text[Range(start: match.startIndex.advancedBy(5),end: match.endIndex.advancedBy(-5))]
+
+            let url = NSURL(string: URLString)
             
-            var i = returned.1[0]
-            
-            var img : UIImage?
-            
-            if let match = i.rangeOfString("src=\".+\" alt", options: .RegularExpressionSearch) {
-                
-                //                print(i[match])
-                let URLString = i[Range(start: match.startIndex.advancedBy(5),end: match.endIndex.advancedBy(-5))]
-                
-                print(URLString)
-                
-                let url = NSURL(string: URLString)
-                
-                let data = NSData(contentsOfURL: url!)
-                img = UIImage(data: data!)
-            }
+            let data = NSData(contentsOfURL: url!)
+            var img = UIImage(data: data!)
             
             return img
             
         } else {
             return nil
         }
-        
     }
     
     static func extractImgString(text:String) ->(String?,String?) {
@@ -137,7 +121,7 @@ class bodyTextConverter: NSObject{
             
         }
         
-        print("extracted:\(extractedImgStrings)")
+//        print("extracted:\(extractedImgStrings)")
         
         return (newText,extractedImgStrings)
         

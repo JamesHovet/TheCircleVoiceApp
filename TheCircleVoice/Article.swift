@@ -19,6 +19,7 @@ struct PropertyKey {
     static let sectionKey = "section"
     static let summaryKey = "summary"
     static let linkKey = "link"
+    static let isShowcaseKey = "isShowcase"
 }
 
 class Article: NSObject, NSCoding {
@@ -35,6 +36,7 @@ class Article: NSObject, NSCoding {
     var summary : String
     var link : String
     var currentPlace : Int = -1
+    var isShowcase : Bool = false
     
     // MARK: Archiving Paths
     
@@ -43,8 +45,8 @@ class Article: NSObject, NSCoding {
     
     // MARK: initializers
     
-    init(UID:Int,headline:String,byline: String, date:String, bodyText: String, featuredImg : UIImage?, section: String, summary : String, link:String){
-        self.UID = UID;self.headline = headline;self.byline = byline;self.date = date;self.bodyText = bodyText;self.featuredImg = featuredImg;self.section = section;self.summary = summary; self.link = link
+    init(UID:Int,headline:String,byline: String, date:String, bodyText: String, featuredImg : UIImage?, section: String, summary : String, link:String, isShowcase:Bool){
+        self.UID = UID;self.headline = headline;self.byline = byline;self.date = date;self.bodyText = bodyText;self.featuredImg = featuredImg;self.section = section;self.summary = summary; self.link = link; self.isShowcase = isShowcase
         
         super.init()
     }
@@ -59,10 +61,11 @@ class Article: NSObject, NSCoding {
         let section = aDecoder.decodeObjectForKey(PropertyKey.sectionKey) as! String
         let summary = aDecoder.decodeObjectForKey(PropertyKey.summaryKey) as! String
         let link = aDecoder.decodeObjectForKey(PropertyKey.linkKey) as! String
+        let isShowcase = aDecoder.decodeBoolForKey(PropertyKey.isShowcaseKey)
         
 //        print("initizlized Article from aCoder")
         
-        self.init(UID:UID,headline: headline,byline: byline,date: date, bodyText: bodyText, featuredImg: featuredImg, section: section, summary: summary, link: link)
+        self.init(UID:UID,headline: headline,byline: byline,date: date, bodyText: bodyText, featuredImg: featuredImg, section: section, summary: summary, link: link, isShowcase: isShowcase)
     }
     
     convenience init(d:Dictionary<String,String>){
@@ -103,13 +106,12 @@ class Article: NSObject, NSCoding {
         
         
         
-        
         let headline = d["title"]
         let byline = d["dc:creator"]
         let date = d["pubDate"]
         let bodyText = d["content:encoded"]
         
-        var featuredImg : UIImage? = nil
+        var featuredImg : UIImage?
         
         var linkNSString = d["link"]! as NSString
         linkNSString = linkNSString.substringFromIndex(3)
@@ -133,9 +135,18 @@ class Article: NSObject, NSCoding {
         
         let summary = d["description"]
         
+        var isShowcase : Bool = false
+        
+        if d["isShowcase"] != nil{
+            if d["isShowcase"] == "true"{isShowcase = true}
+//            print("isShow:\(d["isShowcase"])")
+        } else {
+            isShowcase = false
+        }
+        
 //        print("Inititalized Article from Dict")
         
-        self.init(UID:UID!,headline: headline!,byline: byline!,date: date!, bodyText: bodyText!, featuredImg: featuredImg, section: section!, summary: summary!,link: link)
+        self.init(UID:UID!,headline: headline!,byline: byline!,date: date!, bodyText: bodyText!, featuredImg: featuredImg, section: section!, summary: summary!,link: link,isShowcase: isShowcase)
     }
     
     // MARK: NSCoding
@@ -150,6 +161,7 @@ class Article: NSObject, NSCoding {
         aCoder.encodeObject(section, forKey: PropertyKey.sectionKey)
         aCoder.encodeObject(summary, forKey: PropertyKey.summaryKey)
         aCoder.encodeObject(link, forKey: PropertyKey.linkKey)
+        aCoder.encodeBool(isShowcase, forKey: PropertyKey.isShowcaseKey)
         
 //        print("EncodedWithCoder")
         
@@ -157,6 +169,10 @@ class Article: NSObject, NSCoding {
     
     override var description : String {
         return "\(self.UID):Article Named: \(self.headline) \n"
+    }
+    
+    func getFeaturedImg(){
+        self.featuredImg = bodyTextConverter.extractFeaturedImg(self)
     }
     
     func toDict() -> Dictionary<String,String> {
@@ -168,6 +184,7 @@ class Article: NSObject, NSCoding {
         tmp["content:encoded"] = self.bodyText
         tmp["link"] = self.link
         tmp["currentPlace"] = String(self.currentPlace)
+        tmp["isShowcase"] = String(self.isShowcase)
         
         return tmp
     }

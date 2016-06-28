@@ -80,7 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func loadDebugArticle(){
-        articles["Arts"]!.append(Article(UID: 0, headline: "This is a Test Article", byline: "By: James Hovet '18", date: "A random Date", bodyText: "LOREM IPSUM DOLOR SIT body copy", featuredImg: nil, section: "News", summary: "Lorem ipsum dolor sit summary",link: "http://google.com"))
+        articles["Arts"]!.append(Article(UID: 0, headline: "This is a Test Article", byline: "By: James Hovet '18", date: "A random Date", bodyText: "LOREM IPSUM DOLOR SIT body copy", featuredImg: nil, section: "News", summary: "Lorem ipsum dolor sit summary",link: "http://google.com",isShowcase: false))
     }
     
     
@@ -114,11 +114,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        currentArticle.currentPlace = Int(indexPath.row)
 //        print(currentArticle.currentPlace)
         
+        if currentArticle.isShowcase == true{
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("FeaturedArticle") as! FeaturedArticleTableViewCell
+            
+            return cell
+        }
+        
         let cell =  tableView.dequeueReusableCellWithIdentifier("Article") as! ArticleTableViewCell
-
         
         cell.ArticleObject = currentArticle
 
+        print("from cell: ArticleObject.isShowcase\(cell.ArticleObject.isShowcase)")
+        
         cell.ArticleTitle.text = currentArticle.headline
         cell.Byline.text = (currentArticle.byline as NSString).substringFromIndex(3)
         let index = currentArticle.summary.endIndex.advancedBy(-10)
@@ -127,6 +135,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.featuredArticle = currentArticle.featuredImg
         
         return cell
+            
+
         
     }
     
@@ -180,6 +190,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         for i in xmlParser.arrParsedData{
 //            conditionalAppend(Article(d:i))
             let tmp = Article(d: i)
+//            print(i)
             
             let toAdd = conditionalAppend(tmp)
             if toAdd != nil{
@@ -256,6 +267,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "EnterArticleFromTable" {
             let secondViewController = segue.destinationViewController as! ArticleViewController
             secondViewController.message = (sender?.ArticleObject)!.toDict()
+            secondViewController.articleMessage = sender?.ArticleObject
         } else {
             
         }
