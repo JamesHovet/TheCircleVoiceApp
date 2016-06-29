@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var sections = ["Home","News","Opinions","Features","Sports","Arts"]
     
+    
     var currentSection = "Home"
     
     var data = Dictionary<String,[Dictionary<String,String>]>()
