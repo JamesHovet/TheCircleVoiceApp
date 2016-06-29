@@ -74,10 +74,12 @@ class bodyTextConverter: NSObject{
             
             let data = NSData(contentsOfURL: url!)
             var img = UIImage(data: data!)
+            print("img in bodyTextConverter\(img)")
             
             return img
             
         } else {
+            print("ABOUT TO RETURN NIL!")
             return nil
         }
     }

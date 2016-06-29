@@ -114,9 +114,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        currentArticle.currentPlace = Int(indexPath.row)
 //        print(currentArticle.currentPlace)
         
-        if currentArticle.isShowcase == true{
+        if currentArticle.isShowcase == true && currentArticle.featuredImg != nil{
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("FeaturedArticle") as! FeaturedArticleTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("FeaturedArticleTableViewCell") as! FeaturedArticleTableViewCell
+            
+            cell.ArticleObject = currentArticle
+            
+            cell.ArticleUILabel.text = currentArticle.headline
+            
+            cell.ByLineUILabel.text = (currentArticle.byline as NSString).substringFromIndex(3)
+            
+            cell.FeaturedImg.image = currentArticle.featuredImg
+
             
             return cell
         }
@@ -125,14 +134,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.ArticleObject = currentArticle
 
-        print("from cell: ArticleObject.isShowcase\(cell.ArticleObject.isShowcase)")
+//        print("from cell: ArticleObject.isShowcase\(cell.ArticleObject.isShowcase)")
         
         cell.ArticleTitle.text = currentArticle.headline
         cell.Byline.text = (currentArticle.byline as NSString).substringFromIndex(3)
         let index = currentArticle.summary.endIndex.advancedBy(-10)
         cell.ArticlePreview.text = currentArticle.summary.substringToIndex(index)
-        
-        cell.featuredArticle = currentArticle.featuredImg
         
         return cell
             
@@ -215,7 +222,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        if let row = TableView.indexPathForSelectedRow {
+            self.TableView.deselectRowAtIndexPath(row, animated: false)
+        }
+    }
+    
     override func viewDidLoad() {
+        
+        
+        TableView.estimatedRowHeight = 200.0
+        TableView.rowHeight = UITableViewAutomaticDimension
+        
         super.viewDidLoad()
         
         //clearArticles()
@@ -228,6 +246,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         saveArticles(parseReturn(1, startingDict: articles))
         
         articles = loadArticles()!
+        
+        for section in sections{
+            for i in 0..<articles[section]!.count{
+                if articles[section]![i].isShowcase == true{
+                    articles[section]!.insert(articles[section]!.removeAtIndex(i), atIndex: 0)
+                    break
+                }
+            }
+        }
+        
+        for i in articles[currentSection]!{
+            if i.isShowcase{
+                i.getFeaturedImg()
+            }
+        }
+        
         self.getArticleIndexes()
         
         
@@ -404,7 +438,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
             TableView.reloadData()
             //print("attempt reload data")
-            TableView.setContentOffset(CGPointMake(0, 0 - TableView.contentInset.top), animated: false)
+            TableView.scrollToRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+//            print("ATTEMPT TO SCROLL TO TOP")
+            
         }
         slideIn()
     }

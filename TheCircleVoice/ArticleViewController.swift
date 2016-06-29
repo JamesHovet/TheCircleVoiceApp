@@ -91,7 +91,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         var dx : CGFloat
         let dy : CGFloat = 0.0
         
-        let animTime : Double = 0.1
+        let animTime : Double = 0.3
         
         if isRight == true{
 //            print("swipe right")
@@ -129,6 +129,7 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         let vc = storyboard.instantiateViewControllerWithIdentifier("idArticleViewController") as! ArticleViewController
         
         vc.message = parentVC.articles[parentVC.currentSection]![newPlace].toDict()
+        vc.articleMessage = parentVC.articles[parentVC.currentSection]![newPlace]
         
         
         
