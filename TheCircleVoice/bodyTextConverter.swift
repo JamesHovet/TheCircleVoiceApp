@@ -25,7 +25,7 @@ class bodyTextConverter: NSObject{
             if let match = i.rangeOfString("src=\".+\" alt", options: .RegularExpressionSearch) {
                 
                 //                print(i[match])
-                let URLString = i[Range(start: match.startIndex.advancedBy(5),end: match.endIndex.advancedBy(-5))]
+                let URLString = i[Range(match.startIndex.advancedBy(5) ..< match.endIndex.advancedBy(-5))]
                 
 //                print(URLString)
                 
@@ -63,32 +63,52 @@ class bodyTextConverter: NSObject{
         
     }
     
+    static func convertToAttributedSummary(text : String) -> NSAttributedString {
+//        let returned = extractBodyText(text)
+//        print("calling convertToAttributedSummary")
+        
+        let summaryText = text.stringByReplacingOccurrencesOfString("JUSTIFY", withString: "LEFT", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+//        let summaryText = returned.0
+        
+        let attrs = [NSFontAttributeName : UIFont(name: "Georgia", size: 16.0)!]
+        
+        let attrStr = try! NSMutableAttributedString(
+            data: summaryText.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+            documentAttributes: nil)
+        
+        attrStr.addAttributes(attrs, range: NSRange(location: 0,length: attrStr.length))
+
+        return attrStr
+    }
+    
     static func extractFeaturedImg(article : Article) -> UIImage? {
         
         let text = article.bodyText
         
         if let match = text.rangeOfString("src=\".+\" alt", options: .RegularExpressionSearch) {
-            let URLString = text[Range(start: match.startIndex.advancedBy(5),end: match.endIndex.advancedBy(-5))]
+            let URLString = text[Range(match.startIndex.advancedBy(5) ..< match.endIndex.advancedBy(-5))]
 
             let url = NSURL(string: URLString)
             
             let data = NSData(contentsOfURL: url!)
-            var img = UIImage(data: data!)
-            print("img in bodyTextConverter\(img)")
+            let img = UIImage(data: data!)
+//            print("img in bodyTextConverter\(img)")
             
             return img
             
         } else {
-            print("ABOUT TO RETURN NIL!")
+//            print("ABOUT TO RETURN NIL!")
             return nil
         }
     }
     
     static func extractImgString(text:String) ->(String?,String?) {
         if let match = text.rangeOfString("<div id=\".+</div>", options: .RegularExpressionSearch) {
-            var newText = text[Range(start: text.startIndex,end: match.startIndex)] + text[Range(start: match.endIndex,end: text.endIndex)]
+            let newText = text[Range(text.startIndex ..< match.startIndex)] + text[Range(match.endIndex ..< text.endIndex)]
             
-            var imgStr = text[match]
+            let imgStr = text[match]
             //            print(imgStr)
             return (imgStr,newText)
             
@@ -109,7 +129,7 @@ class bodyTextConverter: NSObject{
         
         while done == false {
             
-            var res = extractImgString(String(newText))
+            let res = extractImgString(String(newText))
             
             if res.0 == nil {
                 done = true

@@ -24,7 +24,9 @@ class ArticleTableViewCell : UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        print(ArticlePreview)
     }
+        
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

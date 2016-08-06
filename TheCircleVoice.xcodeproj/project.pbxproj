@@ -24,11 +24,10 @@
 		591F30331D1AB9A100516661 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F30321D1AB9A100516661 /* AboutUsViewController.swift */; };
 		591F30381D1ABA2000516661 /* Airship in Resources */ = {isa = PBXBuildFile; fileRef = 591F30361D1ABA2000516661 /* Airship */; };
 		591F30391D1ABA2000516661 /* AirshipKit in Resources */ = {isa = PBXBuildFile; fileRef = 591F30371D1ABA2000516661 /* AirshipKit */; };
-		591F30401D1ABA6A00516661 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591F303F1D1ABA4400516661 /* AirshipKit.framework */; };
-		591F30411D1ABA6A00516661 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 591F303F1D1ABA4400516661 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		591F30461D1ABAE300516661 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 591F30451D1ABAE300516661 /* AirshipConfig.plist */; };
 		597580DD1D22E75A00539BBC /* FeaturedArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597580DC1D22E75A00539BBC /* FeaturedArticleTableViewCell.swift */; };
 		5993D1831D0FAEF800502D7E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993D1821D0FAEF800502D7E /* Article.swift */; };
+		59AAC8291D5670F3003DA5CE /* CustomRefreshAnimView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59AAC8281D5670F3003DA5CE /* CustomRefreshAnimView.xib */; };
 		59FD03CB1D218E5C004ED419 /* bodyTextConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD03CA1D218E5C004ED419 /* bodyTextConverter.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,28 +53,7 @@
 			remoteGlobalIDString = 494DD9571B0EB677009C134E;
 			remoteInfo = AirshipKit;
 		};
-		591F30421D1ABA6A00516661 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 591F303A1D1ABA4400516661 /* AirshipKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 494DD9561B0EB677009C134E;
-			remoteInfo = AirshipKit;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		591F30441D1ABA6A00516661 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				591F30411D1ABA6A00516661 /* AirshipKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		591118A61CA0B67500F91103 /* Circle Voice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circle Voice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +84,7 @@
 		591F30451D1ABAE300516661 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		597580DC1D22E75A00539BBC /* FeaturedArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedArticleTableViewCell.swift; sourceTree = "<group>"; };
 		5993D1821D0FAEF800502D7E /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		59AAC8281D5670F3003DA5CE /* CustomRefreshAnimView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomRefreshAnimView.xib; path = ../CustomRefreshAnimView.xib; sourceTree = "<group>"; };
 		59FD03CA1D218E5C004ED419 /* bodyTextConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bodyTextConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				591F30401D1ABA6A00516661 /* AirshipKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,14 +150,15 @@
 				591118A91CA0B67500F91103 /* AppDelegate.swift */,
 				591118AB1CA0B67500F91103 /* ViewController.swift */,
 				597580DC1D22E75A00539BBC /* FeaturedArticleTableViewCell.swift */,
+				591118E11CA0BC6400F91103 /* ArticleTableViewCell.swift */,
 				591118DF1CA0BC2400F91103 /* ArticleViewController.swift */,
 				59FD03CA1D218E5C004ED419 /* bodyTextConverter.swift */,
 				591118DB1CA0B81900F91103 /* RssFetcher.swift */,
-				591118E11CA0BC6400F91103 /* ArticleTableViewCell.swift */,
 				5993D1821D0FAEF800502D7E /* Article.swift */,
 				591118B01CA0B67500F91103 /* Assets.xcassets */,
 				591118B21CA0B67500F91103 /* LaunchScreen.storyboard */,
 				591118B51CA0B67500F91103 /* Info.plist */,
+				59AAC8281D5670F3003DA5CE /* CustomRefreshAnimView.xib */,
 			);
 			path = TheCircleVoice;
 			sourceTree = "<group>";
@@ -220,12 +199,10 @@
 				591118A21CA0B67500F91103 /* Sources */,
 				591118A31CA0B67500F91103 /* Frameworks */,
 				591118A41CA0B67500F91103 /* Resources */,
-				591F30441D1ABA6A00516661 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				591F30431D1ABA6A00516661 /* PBXTargetDependency */,
 			);
 			name = TheCircleVoice;
 			productName = TheCircleVoice;
@@ -342,6 +319,7 @@
 				591F30381D1ABA2000516661 /* Airship in Resources */,
 				591118B11CA0B67500F91103 /* Assets.xcassets in Resources */,
 				591F30391D1ABA2000516661 /* AirshipKit in Resources */,
+				59AAC8291D5670F3003DA5CE /* CustomRefreshAnimView.xib in Resources */,
 				591118E81CA0BD5F00F91103 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,11 +387,6 @@
 			isa = PBXTargetDependency;
 			target = 591118A51CA0B67500F91103 /* TheCircleVoice */;
 			targetProxy = 591118C61CA0B67500F91103 /* PBXContainerItemProxy */;
-		};
-		591F30431D1ABA6A00516661 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AirshipKit;
-			targetProxy = 591F30421D1ABA6A00516661 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

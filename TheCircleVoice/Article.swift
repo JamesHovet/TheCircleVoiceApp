@@ -172,7 +172,7 @@ class Article: NSObject, NSCoding {
     }
     
     func getFeaturedImg(){
-        print("calling extractFeaturedImg from article.swift")
+//        print("calling extractFeaturedImg from article.swift")
         self.featuredImg = bodyTextConverter.extractFeaturedImg(self)
     }
     

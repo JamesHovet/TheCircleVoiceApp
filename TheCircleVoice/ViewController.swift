@@ -6,6 +6,24 @@
 //  Copyright © 2016 James Hovet. All rights reserved.
 //
 
+extension String {
+    
+    var html2AttributedString: NSAttributedString? {
+        guard
+            let data = dataUsingEncoding(NSUTF8StringEncoding)
+            else { return nil }
+        do {
+            return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute:NSUTF8StringEncoding], documentAttributes: nil)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return  nil
+        }
+    }
+    var html2String: String {
+        return html2AttributedString?.string ?? ""
+    }
+}
+
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, XMLParserDelegate {
@@ -15,7 +33,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var SectionColorImage: UIImageView!
     
     var sections = ["Home","News","Opinions","Features","Sports","Arts"]
-    
     
     var currentSection = "Home"
     
@@ -115,7 +132,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        currentArticle.currentPlace = Int(indexPath.row)
 //        print(currentArticle.currentPlace)
         
-        if currentArticle.isShowcase == true && currentArticle.featuredImg != nil{
+//        if currentArticle.isShowcase == true && currentArticle.featuredImg != nil{
+        if currentArticle.featuredImg != nil{
             
             let cell = tableView.dequeueReusableCellWithIdentifier("FeaturedArticleTableViewCell") as! FeaturedArticleTableViewCell
             
@@ -126,6 +144,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.ByLineUILabel.text = (currentArticle.byline as NSString).substringFromIndex(3)
             
             cell.FeaturedImg.image = currentArticle.featuredImg
+            
+            cell.preservesSuperviewLayoutMargins = false
+            cell.separatorInset = UIEdgeInsetsZero
+            cell.layoutMargins = UIEdgeInsetsZero
 
             
             return cell
@@ -135,12 +157,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.ArticleObject = currentArticle
 
-//        print("from cell: ArticleObject.isShowcase\(cell.ArticleObject.isShowcase)")
         
         cell.ArticleTitle.text = currentArticle.headline
         cell.Byline.text = (currentArticle.byline as NSString).substringFromIndex(3)
         let index = currentArticle.summary.endIndex.advancedBy(-10)
-        cell.ArticlePreview.text = currentArticle.summary.substringToIndex(index)
+        cell.ArticlePreview.text = currentArticle.summary.substringToIndex(index).html2String
+        
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
+        
+        
         
         return cell
             
@@ -159,6 +186,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBOutlet weak var TableView: UITableView!
+    
+    
+
     
     /* 
      adds the article to the list of articles if it is not already in the list
@@ -223,6 +253,74 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    /*
+     Handle Refresh
+     */
+    
+    var refreshView: UIView!
+    
+    var ImgsArray : Array<UIImageView> = []
+    
+    var isAnimating = false
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
+    
+    func loadCustomRefreshContents() {
+        let refreshContents = NSBundle.mainBundle().loadNibNamed("CustomRefreshAnimView", owner: self, options: nil)
+        
+        refreshView = refreshContents[0] as! UIView
+        refreshView.frame = refreshControl.bounds
+        
+        for i in 0 ..< refreshView.subviews.count {
+            ImgsArray.append(refreshView.viewWithTag(i + 1) as! UIImageView)
+        }
+        
+        refreshControl.addSubview(refreshView)
+    }
+    
+    func AnimateRefresh(){
+        isAnimating = true
+    
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.fromValue = 0.0
+        rotateAnimation.toValue = CGFloat(M_PI * 2.0 * 12.0)
+        rotateAnimation.duration = 2.5
+        
+        let bigRotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        bigRotateAnimation.fromValue = 0.0
+        bigRotateAnimation.toValue = CGFloat(M_PI * 2.0)
+        bigRotateAnimation.duration = 2.5
+        
+//        if let delegate: AnyObject = completionDelegate {
+//            rotateAnimation.delegate = delegate
+//        }
+        ImgsArray[1].layer.addAnimation(rotateAnimation, forKey: nil)
+        ImgsArray[0].layer.addAnimation(bigRotateAnimation, forKey: nil)
+        
+    }
+    
+    
+    func handleRefresh(refreshControl: UIRefreshControl){
+ 
+        isHamburgerActive = false
+        
+        AnimateRefresh()
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2.4 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            self.isHamburgerActive = true
+            refreshControl.endRefreshing()
+        }
+        
+        
+    }
+    
+    
     override func viewWillAppear(animated: Bool) {
         if let row = TableView.indexPathForSelectedRow {
             self.TableView.deselectRowAtIndexPath(row, animated: false)
@@ -258,14 +356,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         for i in articles[currentSection]!{
-            if i.isShowcase{
-                i.getFeaturedImg()
-            }
+//            if i.isShowcase{
+//                i.getFeaturedImg()
+//            }
+            i.getFeaturedImg()
         }
         
         self.getArticleIndexes()
         
         
+        refreshControl.backgroundColor = UIColor.clearColor()
+        refreshControl.tintColor = UIColor.clearColor()
+        self.TableView.addSubview(self.refreshControl)
+        
+        loadCustomRefreshContents()
         
         // Do any additional setup after loading the view, typically from a nib.
         //print("did load")
@@ -393,7 +497,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        print(topView.frame)
     }
     
+    var isHamburgerActive = true
+    
     @IBAction func HamburgerActivated(sender: AnyObject?) {
+        
+        if !isHamburgerActive {
+            return
+        }
         
 //        print("hamburger activated")
 //        print(sender.debugDescription)
