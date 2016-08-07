@@ -85,7 +85,15 @@ class bodyTextConverter: NSObject{
     
     static func extractFeaturedImg(article : Article) -> UIImage? {
         
+        /*
+         DELETE ME:
+         */
+        
+        extractAllImgs(article)
+        
         let text = article.bodyText
+        
+//        print(text)
         
         if let match = text.rangeOfString("src=\".+\" alt", options: .RegularExpressionSearch) {
             let URLString = text[Range(match.startIndex.advancedBy(5) ..< match.endIndex.advancedBy(-5))]
@@ -104,12 +112,117 @@ class bodyTextConverter: NSObject{
         }
     }
     
+    static func CVextractFeaturedImg(article : Article) -> CVImageWrapper {
+        
+        /*
+         DELETE ME:
+         */
+        
+        let imgs = extractAllImgs(article)
+        
+        let text = article.bodyText
+        
+        //        print(text)
+        
+        if let match = text.rangeOfString("src=\".+\" alt", options: .RegularExpressionSearch) {
+            let URLString = text[Range(match.startIndex.advancedBy(5) ..< match.endIndex.advancedBy(-5))]
+            
+            let url = NSURL(string: URLString)
+            
+            let data = NSData(contentsOfURL: url!)
+            let img = UIImage(data: data!)
+            //            print("img in bodyTextConverter\(img)")
+            
+            if imgs.endIndex != 0{
+                return imgs[0]!
+            }
+        }
+        
+        return CVImageWrapper(image: nil, alt: "NIL ALT", credit: "NIL CREDIT")
+        
+    }
+    
+    static func extractAllImgs(article : Article) -> Array<CVImageWrapper?> {
+        
+        let text = article.bodyText
+        
+        var choppedText = text
+        
+        var arr = Array<CVImageWrapper?>()
+        
+        let numImgs = extractBodyText(article.bodyText).1.endIndex
+        
+        for i in Range(0 ..< numImgs){
+            if let match = choppedText.rangeOfString("src=\".+\" alt", options: .RegularExpressionSearch) {
+                let URLString = choppedText[Range(match.startIndex.advancedBy(5) ..< match.endIndex.advancedBy(-5))]
+                
+//                print("URL")
+//                print(URLString)
+                
+                let url = NSURL(string: URLString)
+                
+                let data = NSData(contentsOfURL: url!)
+                let img = UIImage(data: data!)
+                //            print("img in bodyTextConverter\(img)")
+                
+                var altString = "NIL ALT STRING"
+                
+                if let match = choppedText.rangeOfString("alt=\".+\" width", options: .RegularExpressionSearch) {
+                    altString = choppedText[Range(match.startIndex.advancedBy(5) ..< match.endIndex.advancedBy(-7))]
+//                    print("ALT")
+//                    print(altString)
+                    //            print("img in bodyTextConverter\(img)")
+                    
+                }
+                
+                //TODO: ADD CREDIT CODE
+                
+                var creditString = "NIL CREDIT STRING"
+                
+                if let match = choppedText.rangeOfString("line\">.+</span>", options: .RegularExpressionSearch) {
+                    creditString = choppedText[Range(match.startIndex.advancedBy(6) ..< match.endIndex.advancedBy(-7))]
+                    
+                    creditString = creditString.stringByReplacingOccurrencesOfString("&#8217;", withString: "'")
+                    
+//                    print(creditString)
+                    //                    print("ALT")
+                    //                    print(altString)
+                    //            print("img in bodyTextConverter\(img)")
+                    
+                }
+                
+                
+                var chopEnd = choppedText.endIndex
+                if let match = choppedText.rangeOfString("</div>", options: .RegularExpressionSearch) {
+//                    print("MATCH")
+                    chopEnd = match.endIndex
+                }
+                
+                
+//                print("before")
+//                print(choppedText)
+                
+//                print("start \(chopEnd)")
+//                print("end   \(choppedText.endIndex)")
+                
+                choppedText = choppedText[Range(chopEnd ..< choppedText.endIndex)]
+//                print("after")
+//                print(choppedText)
+                
+                arr.append(CVImageWrapper(image: img!, alt: altString, credit: creditString))
+            }
+            
+        }
+        
+        return arr
+    }
+    
     static func extractImgString(text:String) ->(String?,String?) {
         if let match = text.rangeOfString("<div id=\".+</div>", options: .RegularExpressionSearch) {
             
-            print(text)
+            
             let newText = text[Range(text.startIndex ..< match.startIndex)] + text[Range(match.endIndex ..< text.endIndex)]
-            print(newText)
+            
             let imgStr = text[match]
             //            print(imgStr)
             return (imgStr,newText)

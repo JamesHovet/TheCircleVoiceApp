@@ -16,6 +16,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var subview: UIView!
     
+    @IBOutlet weak var FeaturedImgView: UIImageView!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
@@ -216,6 +218,27 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
 //        print(self.Article.attributedText.string)
 //        print(self.Article.attributedText.attributesAtIndex(0, effectiveRange: nil))
+//        FeaturedImgView.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        //TEST CODE
+        
+        var CVfeaturedImg = articleMessage.CVFeaturedImg
+        
+        
+        FeaturedImgView.image = CVfeaturedImg!.image
+        
+        print("from ArticleVC: \(CVfeaturedImg!.alt)")
+        print("from ArticleVC: \(CVfeaturedImg!.credit)")
+        
+        FeaturedImgView.autoresizingMask = .FlexibleHeight
+        
+        /*
+        print(FeaturedImgView.frame)
+        print(FeaturedImgView.image?.size)
+        print(FeaturedImgView.image?.scale)
+        print(FeaturedImgView.superview?.description)
+        print(FeaturedImgView.superview?.frame)
+        */
         
         self.update()
         

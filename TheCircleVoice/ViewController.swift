@@ -98,7 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func loadDebugArticle(){
-        articles["Arts"]!.append(Article(UID: 0, headline: "This is a Test Article", byline: "By: James Hovet '18", date: "A random Date", bodyText: "LOREM IPSUM DOLOR SIT body copy", featuredImg: nil, section: "News", summary: "Lorem ipsum dolor sit summary",link: "http://google.com",isShowcase: false))
+        articles["Arts"]!.append(Article(UID: 0, headline: "This is a Test Article", byline: "By: James Hovet '18", date: "A random Date", bodyText: "LOREM IPSUM DOLOR SIT body copy", featuredImg: nil, section: "News", summary: "Lorem ipsum dolor sit summary",link: "http://google.com",isShowcase: false, CVFeaturedImg: CVImageWrapper(image: nil, alt: "NIL ALT", credit: "NIL CREDIT")))
     }
     
     
@@ -360,6 +360,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //                i.getFeaturedImg()
 //            }
             i.getFeaturedImg()
+            i.getCVFeaturedImg()
         }
         
         self.getArticleIndexes()

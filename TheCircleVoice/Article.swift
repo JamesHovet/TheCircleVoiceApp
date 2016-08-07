@@ -20,6 +20,7 @@ struct PropertyKey {
     static let summaryKey = "summary"
     static let linkKey = "link"
     static let isShowcaseKey = "isShowcase"
+    static let CVFeaturedImgKey = "CVFeaturedImg"
 }
 
 class Article: NSObject, NSCoding {
@@ -37,6 +38,7 @@ class Article: NSObject, NSCoding {
     var link : String
     var currentPlace : Int = -1
     var isShowcase : Bool = false
+    var CVFeaturedImg : CVImageWrapper?
     
     // MARK: Archiving Paths
     
@@ -45,8 +47,8 @@ class Article: NSObject, NSCoding {
     
     // MARK: initializers
     
-    init(UID:Int,headline:String,byline: String, date:String, bodyText: String, featuredImg : UIImage?, section: String, summary : String, link:String, isShowcase:Bool){
-        self.UID = UID;self.headline = headline;self.byline = byline;self.date = date;self.bodyText = bodyText;self.featuredImg = featuredImg;self.section = section;self.summary = summary; self.link = link; self.isShowcase = isShowcase
+    init(UID:Int,headline:String,byline: String, date:String, bodyText: String, featuredImg : UIImage?, section: String, summary : String, link:String, isShowcase:Bool, CVFeaturedImg : CVImageWrapper?){
+        self.UID = UID;self.headline = headline;self.byline = byline;self.date = date;self.bodyText = bodyText;self.featuredImg = featuredImg;self.section = section;self.summary = summary; self.link = link; self.isShowcase = isShowcase; self.CVFeaturedImg = CVFeaturedImg
         
         super.init()
     }
@@ -62,10 +64,11 @@ class Article: NSObject, NSCoding {
         let summary = aDecoder.decodeObjectForKey(PropertyKey.summaryKey) as! String
         let link = aDecoder.decodeObjectForKey(PropertyKey.linkKey) as! String
         let isShowcase = aDecoder.decodeBoolForKey(PropertyKey.isShowcaseKey)
+        let CVFeaturedImg = aDecoder.decodeObjectForKey(PropertyKey.CVFeaturedImgKey) as? CVImageWrapper
         
 //        print("initizlized Article from aCoder")
         
-        self.init(UID:UID,headline: headline,byline: byline,date: date, bodyText: bodyText, featuredImg: featuredImg, section: section, summary: summary, link: link, isShowcase: isShowcase)
+        self.init(UID:UID,headline: headline,byline: byline,date: date, bodyText: bodyText, featuredImg: featuredImg, section: section, summary: summary, link: link, isShowcase: isShowcase, CVFeaturedImg: CVFeaturedImg)
     }
     
     convenience init(d:Dictionary<String,String>){
@@ -112,6 +115,7 @@ class Article: NSObject, NSCoding {
         let bodyText = d["content:encoded"]
         
         var featuredImg : UIImage?
+        var CVFeaturedImg : CVImageWrapper?
         
         var linkNSString = d["link"]! as NSString
         linkNSString = linkNSString.substringFromIndex(3)
@@ -146,7 +150,7 @@ class Article: NSObject, NSCoding {
         
 //        print("Inititalized Article from Dict")
         
-        self.init(UID:UID!,headline: headline!,byline: byline!,date: date!, bodyText: bodyText!, featuredImg: featuredImg, section: section!, summary: summary!,link: link,isShowcase: isShowcase)
+        self.init(UID:UID!,headline: headline!,byline: byline!,date: date!, bodyText: bodyText!, featuredImg: featuredImg, section: section!, summary: summary!,link: link,isShowcase: isShowcase, CVFeaturedImg: CVFeaturedImg)
     }
     
     // MARK: NSCoding
@@ -162,6 +166,7 @@ class Article: NSObject, NSCoding {
         aCoder.encodeObject(summary, forKey: PropertyKey.summaryKey)
         aCoder.encodeObject(link, forKey: PropertyKey.linkKey)
         aCoder.encodeBool(isShowcase, forKey: PropertyKey.isShowcaseKey)
+        aCoder.encodeObject(CVFeaturedImg, forKey: PropertyKey.CVFeaturedImgKey)
         
 //        print("EncodedWithCoder")
         
@@ -174,6 +179,11 @@ class Article: NSObject, NSCoding {
     func getFeaturedImg(){
 //        print("calling extractFeaturedImg from article.swift")
         self.featuredImg = bodyTextConverter.extractFeaturedImg(self)
+    }
+    
+    func getCVFeaturedImg(){
+        
+        self.CVFeaturedImg = bodyTextConverter.CVextractFeaturedImg(self)
     }
     
     func toDict() -> Dictionary<String,String> {
