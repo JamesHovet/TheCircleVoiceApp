@@ -106,8 +106,10 @@ class bodyTextConverter: NSObject{
     
     static func extractImgString(text:String) ->(String?,String?) {
         if let match = text.rangeOfString("<div id=\".+</div>", options: .RegularExpressionSearch) {
-            let newText = text[Range(text.startIndex ..< match.startIndex)] + text[Range(match.endIndex ..< text.endIndex)]
             
+            print(text)
+            let newText = text[Range(text.startIndex ..< match.startIndex)] + text[Range(match.endIndex ..< text.endIndex)]
+            print(newText)
             let imgStr = text[match]
             //            print(imgStr)
             return (imgStr,newText)

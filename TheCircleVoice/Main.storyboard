@@ -203,7 +203,8 @@
                                                                             <exclude reference="gOn-E1-rz2"/>
                                                                         </mask>
                                                                     </variation>
-                                                                    <variation key="widthClass=compact">
+                                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="267"/>
                                                                         <mask key="constraints">
                                                                             <include reference="gOn-E1-rz2"/>
                                                                         </mask>
@@ -214,6 +215,9 @@
                                                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="23"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="23" y="270" width="194" height="26.5"/>
+                                                                    </variation>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="999" text="By James Hovet '18" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ia-5D-85k">
                                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -228,7 +232,8 @@
                                                                             <exclude reference="38Y-1b-Gc6"/>
                                                                         </mask>
                                                                     </variation>
-                                                                    <variation key="widthClass=compact">
+                                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="23" y="296.5" width="194" height="70"/>
                                                                         <mask key="constraints">
                                                                             <exclude reference="38Y-1b-Gc6"/>
                                                                         </mask>
@@ -1052,11 +1057,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="835" id="agF-Ne-33S"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel nulla non justo varius elementum at sit amet justo. Ut vehicula fringilla lorem in dapibus. Integer tristique lectus eget arcu aliquam, fermentum rutrum nunc egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla vehicula metus, non ultrices risus euismod ac. Maecenas quis metus ac diam vestibulum placerat sit amet a mauris. Fusce non lacus condimentum, iaculis erat at, commodo ex. Nunc eget condimentum mi. Vestibulum porttitor laoreet fringilla. Aenean lobortis rutrum diam, et sollicitudin sapien elementum et.
+                                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel nulla non justo varius elementum at sit amet justo. Ut vehicula fringilla lorem in dapibus. Integer tristique lectus eget arcu aliquam, fermentum rutrum nunc egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla vehicula metus, non ultrices risus euismod ac. Maecenas quis metus ac diam vestibulum placerat sit amet a mauris. Fusce non lacus condimentum, iaculis erat at, commodo ex. Nunc eget condimentum mi. Vestibulum porttitor laoreet fringilla. Aenean lobortis rutrum diam, et sollicitudin sapien elementum et.
 
 Donec ut viverra nulla. Morbi molestie, magna vel lacinia molestie, tortor est eleifend orci, quis lacinia lectus risus nec enim. In nibh metus, aliquet vel auctor id, convallis eu ipsum. In eu purus tellus. Donec consequat quis odio non dapibus. Nunc pretium ullamcorper congue. Aliquam tincidunt est eu ipsum pulvinar porttitor. Pellentesque luctus, quam eget lobortis malesuada, urna nibh fermentum dui, ac luctus quam ante nec risus. Proin ornare turpis justo, bibendum bibendum nulla scelerisque eu. Cras nec malesuada ex, at euismod lacus. Vivamus massa neque, vestibulum eu libero efficitur, dapibus tempus odio. Aenean aliquet dictum purus at fermentum. Quisque accumsan convallis sem a imperdiet. Nam sed tristique sapien. Donec semper fringilla pretium. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
-Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis arcu. Nulla auctor felis in malesuada commodo. Integer sed metus consectetur, vestibulum ipsum non, tristique arcu. Nulla consectetur tincidunt sem, ut aliquam mi rutrum in. Morbi bibendum viverra mauris, id imperdiet nisi viverra consectetur. Phasellus quis tempus velit. Nullam tincidunt nibh et risus hendrerit, lacinia convallis metus pulvinar. Fusce ut ex nec mi tristique efficitur at at ex. Mauris vitae rhoncus leo.</string>
+Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis arcu. Nulla auctor felis in malesuada commodo. Integer sed metus consectetur, vestibulum ipsum non, tristique arcu. Nulla consectetur tincidunt sem, ut aliquam mi rutrum in. Morbi bibendum viverra mauris, id imperdiet nisi viverra consectetur. Phasellus quis tempus velit. Nullam tincidunt nibh et risus hendrerit, lacinia convallis metus pulvinar. Fusce ut ex nec mi tristique efficitur at at ex. Mauris vitae rhoncus leo. - JAMES HOVET </mutableString>
                                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -1065,10 +1070,11 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                         <exclude reference="agF-Ne-33S"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact">
+                                                <variation key="widthClass=compact" misplaced="YES">
                                                     <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
+                                                    <rect key="frame" x="15" y="475" width="370" height="400"/>
                                                     <mask key="constraints">
-                                                        <include reference="agF-Ne-33S"/>
+                                                        <exclude reference="agF-Ne-33S"/>
                                                     </mask>
                                                 </variation>
                                             </textView>
