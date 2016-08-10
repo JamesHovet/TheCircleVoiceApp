@@ -165,19 +165,19 @@ class bodyTextConverter: NSObject{
                 let img = UIImage(data: data!)
                 //            print("img in bodyTextConverter\(img)")
                 
-                var altString = "NIL ALT STRING"
+                var altString = "NILISH ALT STRING"
                 
-                if let match = choppedText.rangeOfString("alt=\".+\" width", options: .RegularExpressionSearch) {
-                    altString = choppedText[Range(match.startIndex.advancedBy(5) ..< match.endIndex.advancedBy(-7))]
+                if let match = choppedText.rangeOfString("alt=\".+\" srcset", options: .RegularExpressionSearch) {
+                    altString = choppedText[Range(match.startIndex.advancedBy(5) ..< match.endIndex.advancedBy(-8))]
 //                    print("ALT")
 //                    print(altString)
-                    //            print("img in bodyTextConverter\(img)")
-                    
+//                    print("img in bodyTextConverter\(img)")
+//                    
                 }
                 
                 //TODO: ADD CREDIT CODE
                 
-                var creditString = "NIL CREDIT STRING"
+                var creditString = "NILISH CREDIT STRING"
                 
                 if let match = choppedText.rangeOfString("line\">.+</span>", options: .RegularExpressionSearch) {
                     creditString = choppedText[Range(match.startIndex.advancedBy(6) ..< match.endIndex.advancedBy(-7))]

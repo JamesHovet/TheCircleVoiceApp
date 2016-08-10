@@ -914,14 +914,6 @@
                                     <action selector="backButtonPressedAction" destination="NLm-Be-FNv" eventType="touchUpInside" id="0ae-94-Qvq"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-RG-4lR">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et7-Oi-9oy">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -942,6 +934,17 @@
                                     <action selector="SupportEmail:" destination="NLm-Be-FNv" eventType="touchUpInside" id="hxt-P3-IXz"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-RG-4lR">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="58" width="354" height="504"/>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -963,10 +966,10 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="pJt-Td-E4n"/>
-                                <exclude reference="pbl-RG-4lR"/>
                                 <exclude reference="et7-Oi-9oy"/>
                                 <exclude reference="Li3-iQ-nlh"/>
                                 <exclude reference="q6O-rv-cHj"/>
+                                <exclude reference="pbl-RG-4lR"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="hhe-Xy-4JQ"/>
@@ -988,10 +991,10 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="pJt-Td-E4n"/>
-                                <include reference="pbl-RG-4lR"/>
                                 <include reference="et7-Oi-9oy"/>
                                 <include reference="Li3-iQ-nlh"/>
                                 <include reference="q6O-rv-cHj"/>
+                                <include reference="pbl-RG-4lR"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="hhe-Xy-4JQ"/>
@@ -1051,9 +1054,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBq-Ca-VU9" userLabel="White">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="580"/>
-                                        </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert Headlines Here. And this is a second line" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6jT-8E-fb3">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -1091,8 +1091,7 @@
                                                 <exclude reference="Xf8-3i-vVT"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="20" y="198" width="327" height="28"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="Xf8-3i-vVT"/>
                                             </mask>
@@ -1111,8 +1110,7 @@
                                                 <exclude reference="4yO-zF-nq8"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="20" y="226" width="327" height="37"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="4yO-zF-nq8"/>
                                             </mask>
@@ -1131,8 +1129,7 @@
                                                 <exclude reference="pEp-ba-HOj"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="20" y="266" width="285" height="4"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="MXY-u4-TRG"/>
                                                 <include reference="pEp-ba-HOj"/>
@@ -1142,11 +1139,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y57-eR-G51" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="100" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="SampleImg-900x600" translatesAutoresizingMaskIntoConstraints="NO" id="w79-3u-Gnv">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="100" placeholderIntrinsicWidth="370" placeholderIntrinsicHeight="200" image="SampleImg-900x600" translatesAutoresizingMaskIntoConstraints="NO" id="w79-3u-Gnv">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                                    <rect key="frame" x="15" y="8" width="370" height="200"/>
-                                                </variation>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEQ-uW-FQA" userLabel="ArticleTextView">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1167,22 +1161,39 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                         <exclude reference="agF-Ne-33S"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                <variation key="widthClass=compact">
                                                     <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
-                                                    <rect key="frame" x="15" y="216" width="370" height="834.5"/>
                                                     <mask key="constraints">
                                                         <exclude reference="agF-Ne-33S"/>
                                                     </mask>
                                                 </variation>
                                             </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="370" placeholderIntrinsicHeight="71" text="This a caption that is long enough to run onto more than one line because you have to test the extremes." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJr-Zz-VkQ" userLabel="Caption">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                                <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="203" placeholderIntrinsicHeight="21" text="Photo by: James Hovet '18" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqE-ZP-Q3v">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                                <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="HEQ-uW-FQA" secondAttribute="trailing" constant="20" id="3zQ-a8-Ubc"/>
                                             <constraint firstItem="HEQ-uW-FQA" firstAttribute="leading" secondItem="Y57-eR-G51" secondAttribute="leading" constant="8" id="4Dv-q0-ELH"/>
+                                            <constraint firstItem="HEQ-uW-FQA" firstAttribute="top" secondItem="bqE-ZP-Q3v" secondAttribute="bottom" constant="1" id="IvK-ui-IVH">
+                                                <variation key="widthClass=compact" constant="5"/>
+                                            </constraint>
+                                            <constraint firstItem="VJr-Zz-VkQ" firstAttribute="width" secondItem="w79-3u-Gnv" secondAttribute="width" id="J5Z-aj-Jmg"/>
+                                            <constraint firstItem="VJr-Zz-VkQ" firstAttribute="top" secondItem="w79-3u-Gnv" secondAttribute="bottom" constant="8" id="M67-63-ZO4"/>
                                             <constraint firstItem="w79-3u-Gnv" firstAttribute="leading" secondItem="Y57-eR-G51" secondAttribute="leading" constant="15" id="Mec-8V-Qm9"/>
                                             <constraint firstItem="HEQ-uW-FQA" firstAttribute="top" secondItem="w79-3u-Gnv" secondAttribute="bottom" constant="-8" id="NDC-h3-XRv"/>
+                                            <constraint firstItem="VJr-Zz-VkQ" firstAttribute="leading" secondItem="w79-3u-Gnv" secondAttribute="leading" id="NgG-04-sQQ"/>
                                             <constraint firstItem="HEQ-uW-FQA" firstAttribute="top" secondItem="Y57-eR-G51" secondAttribute="top" constant="518.5" id="Q5L-xn-5zX"/>
                                             <constraint firstItem="HEQ-uW-FQA" firstAttribute="top" secondItem="Y57-eR-G51" secondAttribute="top" constant="475.5" id="SNE-9i-4MT"/>
                                             <constraint firstAttribute="trailing" secondItem="HEQ-uW-FQA" secondAttribute="trailing" constant="15" id="WBU-Vh-UAd"/>
@@ -1194,19 +1205,30 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                             <constraint firstItem="w79-3u-Gnv" firstAttribute="top" secondItem="Y57-eR-G51" secondAttribute="top" constant="8" id="izC-wo-OUO"/>
                                             <constraint firstAttribute="width" constant="400" id="kZF-t9-1ph"/>
                                             <constraint firstAttribute="height" constant="527" id="sMb-US-zsO"/>
+                                            <constraint firstItem="bqE-ZP-Q3v" firstAttribute="top" secondItem="VJr-Zz-VkQ" secondAttribute="bottom" constant="-1" id="w1l-cK-mRm"/>
                                             <constraint firstAttribute="height" constant="1330" id="wW7-IE-jmd"/>
+                                            <constraint firstItem="bqE-ZP-Q3v" firstAttribute="trailing" secondItem="VJr-Zz-VkQ" secondAttribute="trailing" id="xIa-5X-6q3"/>
                                             <constraint firstAttribute="trailing" secondItem="HEQ-uW-FQA" secondAttribute="trailing" constant="15" id="yJg-j2-e1V"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="w79-3u-Gnv"/>
+                                                <exclude reference="VJr-Zz-VkQ"/>
+                                                <exclude reference="bqE-ZP-Q3v"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="kZF-t9-1ph"/>
                                                 <exclude reference="sMb-US-zsO"/>
                                                 <exclude reference="wW7-IE-jmd"/>
+                                                <exclude reference="Mec-8V-Qm9"/>
+                                                <exclude reference="fMd-5P-qAj"/>
+                                                <exclude reference="izC-wo-OUO"/>
+                                                <exclude reference="J5Z-aj-Jmg"/>
+                                                <exclude reference="M67-63-ZO4"/>
+                                                <exclude reference="NgG-04-sQQ"/>
                                                 <exclude reference="3zQ-a8-Ubc"/>
                                                 <exclude reference="4Dv-q0-ELH"/>
+                                                <exclude reference="IvK-ui-IVH"/>
                                                 <exclude reference="NDC-h3-XRv"/>
                                                 <exclude reference="Q5L-xn-5zX"/>
                                                 <exclude reference="SNE-9i-4MT"/>
@@ -1216,23 +1238,30 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <exclude reference="gw3-IN-crL"/>
                                                 <exclude reference="hQA-f8-7LM"/>
                                                 <exclude reference="yJg-j2-e1V"/>
-                                                <exclude reference="Mec-8V-Qm9"/>
-                                                <exclude reference="fMd-5P-qAj"/>
-                                                <exclude reference="izC-wo-OUO"/>
+                                                <exclude reference="w1l-cK-mRm"/>
+                                                <exclude reference="xIa-5X-6q3"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="275" width="400" height="1100"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="w79-3u-Gnv"/>
+                                                <include reference="VJr-Zz-VkQ"/>
+                                                <include reference="bqE-ZP-Q3v"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="kZF-t9-1ph"/>
                                                 <exclude reference="sMb-US-zsO"/>
                                                 <exclude reference="wW7-IE-jmd"/>
+                                                <include reference="Mec-8V-Qm9"/>
+                                                <include reference="fMd-5P-qAj"/>
+                                                <include reference="izC-wo-OUO"/>
+                                                <include reference="J5Z-aj-Jmg"/>
+                                                <include reference="M67-63-ZO4"/>
+                                                <include reference="NgG-04-sQQ"/>
                                                 <exclude reference="3zQ-a8-Ubc"/>
                                                 <exclude reference="4Dv-q0-ELH"/>
-                                                <include reference="NDC-h3-XRv"/>
+                                                <include reference="IvK-ui-IVH"/>
+                                                <exclude reference="NDC-h3-XRv"/>
                                                 <exclude reference="Q5L-xn-5zX"/>
                                                 <exclude reference="SNE-9i-4MT"/>
                                                 <exclude reference="WBU-Vh-UAd"/>
@@ -1241,9 +1270,8 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <include reference="gw3-IN-crL"/>
                                                 <exclude reference="hQA-f8-7LM"/>
                                                 <include reference="yJg-j2-e1V"/>
-                                                <include reference="Mec-8V-Qm9"/>
-                                                <include reference="fMd-5P-qAj"/>
-                                                <include reference="izC-wo-OUO"/>
+                                                <include reference="w1l-cK-mRm"/>
+                                                <include reference="xIa-5X-6q3"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -1282,8 +1310,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                                 <exclude reference="FnS-g2-HW0"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="20" y="0.0" width="122.5" height="65"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="FnS-g2-HW0"/>
                                             </mask>
@@ -1444,8 +1471,7 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                                         <exclude reference="Jdd-pX-Pwz"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" ambiguous="YES">
-                                    <rect key="frame" x="0.0" y="20" width="400" height="580"/>
+                                <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="sBq-Ca-VU9"/>
                                         <include reference="6jT-8E-fb3"/>
@@ -1646,9 +1672,13 @@ Cras porta egestas blandit. Morbi sed nibh posuere, bibendum elit at, iaculis ar
                             </mask>
                         </variation>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="800"/>
                     <connections>
                         <outlet property="ArticleTextView" destination="HEQ-uW-FQA" id="4w0-dt-VRp"/>
                         <outlet property="Byline" destination="9MB-bS-flD" id="kII-6h-bZ5"/>
+                        <outlet property="CaptionLabel" destination="VJr-Zz-VkQ" id="5fe-2V-sGj"/>
+                        <outlet property="CreditLabel" destination="bqE-ZP-Q3v" id="kF1-VF-GXl"/>
                         <outlet property="FeaturedImgView" destination="w79-3u-Gnv" id="j5Y-M7-cD3"/>
                         <outlet property="HeaderHelperView" destination="pLG-tD-bm7" id="GO9-es-V6i"/>
                         <outlet property="Headline" destination="6jT-8E-fb3" id="g6w-KO-cqm"/>

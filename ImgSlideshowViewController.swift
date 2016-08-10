@@ -10,7 +10,8 @@ import UIKit
 
 class ImgSlideshowViewController: UIViewController {
 
-    var article : Article!
+    
+    var imgs : Array<CVImageWrapper>!
     
     
     

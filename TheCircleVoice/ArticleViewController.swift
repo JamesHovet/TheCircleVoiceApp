@@ -57,6 +57,10 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
    
     @IBOutlet weak var ArticleTextView: UITextView!
     
+    @IBOutlet weak var CaptionLabel: UILabel!
+    
+    @IBOutlet weak var CreditLabel: UILabel!
+    
     func displayShareSheet(shareContent:NSURL) {
         let activityViewController = UIActivityViewController(activityItems: [shareContent], applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: {})
@@ -226,6 +230,14 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         
         FeaturedImgView.image = CVfeaturedImg!.image
+        
+        if CVfeaturedImg!.alt == "NIL ALT" {
+            CaptionLabel.text = nil
+            CreditLabel.text = nil
+        } else {
+            CaptionLabel.text = CVfeaturedImg!.alt
+            CreditLabel.text = CVfeaturedImg!.credit
+        }
         
         print("from ArticleVC: \(CVfeaturedImg!.alt)")
         print("from ArticleVC: \(CVfeaturedImg!.credit)")
